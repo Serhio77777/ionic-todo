@@ -5,16 +5,57 @@ navigation history that also transitions its views in and out.
 -->
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 
-  <!-- Dashboard Tab -->
-  <ion-tab title="All todo" icon-off="ion-ios-film-outline" icon-on="ion-ios-film">
+  <ion-tab title="All Todos" icon-off="ion-ios-film-outline" icon-on="ion-ios-film">
+    <ion-nav-view name="todos-tab">
+      <ion-content>
+        <h2>All Todos</h2>
+        <ul class="block">
+            <li class="li" ng-repeat="todo in todos track by $index">
+            </li>
+        </ul>
+      </ion-content>
+    </ion-nav-view>
   </ion-tab>
 
-  <!-- Chats Tab -->
-  <ion-tab title="Create new todo" icon-off="ion-android-add" icon-on="ion-android-add-circle">
+  <ion-tab title="Create New Todo" icon-off="ion-android-add" icon-on="ion-android-add-circle">
+      <ion-nav-view name="creation-tab">
+          <ion-content>
+              <ion-list>
+                  <div>Name:
+                      <input ng-model:"{{todo.name}}"></input>
+                  </div>
+                  <hr>
+                  <div>Description:
+                      <input ng-model:"{{todo.desription}}"></input>
+                  </div>
+                  <hr>
+                  <div>Date:
+                      <input ng-model:"{{todo.date}}"></input>
+                  </div>
+                  <hr>
+                  <div><p>Tasks:<div  ng-class="{todo_change: todo.checked}"></div></p></div>
+                  <hr>
+                  <div ng-model="picture"></div>
+                  <ion-option-button class="button-positive" ng-click="addTodo(todos)">
+                    Edit
+                  </ion-option-button>
+                  <ion-option-button class="button-assertive" ng-click="remove(todo)">
+                    Delete
+                  </ion-option-button>
+              </ion-list>
+          </ion-content>
+      </ion-nav-view>
   </ion-tab>
 
-  <!-- Account Tab -->
   <ion-tab title="Settings" icon-off="ion-android-star-outline" icon-on="ion-android-star">
+    <ion-nav-view name="settings-tab">
+      <ion-content>
+        <ion-list>
+            <div><p>Left/Right Menu</p></div>
+            <ion-toggle toggle-class="toggle-positive" ng-model="settings.radio"></ion-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-nav-view>
   </ion-tab>
 
 

@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $cordovaSplashscreen) {
   $ionicPlatform.ready(function() {
       setTimeout(function() {
           $cordovaSplashscreen.hide()
@@ -26,8 +26,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
-
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+$ionicConfigProvider.tabs.position('top');
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -42,47 +42,35 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   // Each tab has its own nav history stack:
-
-  .state('tab.creation', {
-    url: '/creation',
-    views: {
-      'tab-creation': {
-        templateUrl: 'templates/tab-creation.html',
-        controller: 'creationCtrl'
-      }
-    }
-  })
-
   .state('tab.todos', {
       url: '/todos',
       views: {
-        'tab-todos': {
-          templateUrl: 'templates/tab-todos.html',
+        'todos-tap': {
+          templateUrl: 'templates/todos.html',
           controller: 'TodosCtrl'
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+    .state('tab.creation', {
+      url: '/creation',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'creation-tab': {
+          templateUrl: 'templates/creation.html',
+          controller: 'CreationCtrl'
         }
       }
     })
-
   .state('tab.settings', {
     url: '/settings',
     views: {
-      'tab-settings': {
-        templateUrl: 'templates/tab-settings.html',
+      'settings-tab': {
+        templateUrl: 'templates/settings.html',
         controller: 'SettingsCtrl'
       }
     }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/todos');
 
 });
