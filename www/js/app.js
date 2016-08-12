@@ -5,13 +5,25 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngStorage'])
 
-.run(function($ionicPlatform, $cordovaSplashscreen) {
+.run(function($ionicPlatform, $cordovaSplashscreen, $cordovaNetwork) {
+  document.addEventListener("deviceready", function () {
+      var type = $cordovaNetwork.getNetwork()
+      var isOnline = $cordovaNetwork.isOnline()
+      var isOffline = $cordovaNetwork.isOffline()
+      $rootScope.$on('$cordovaNetwork:online', function(event, networkState){
+          var onlineState = networkState;
+      })
+      $rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
+          var offlineState = networkState;
+      })
+  }, false);
   $ionicPlatform.ready(function() {
       setTimeout(function() {
           $cordovaSplashscreen.hide()
           }, 5000)
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -35,23 +47,38 @@ $ionicConfigProvider.tabs.position('top');
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+    .state('menu', {
+    url: '/menu',
+    abstract: true,
+    templateUrl: 'sidemenu.html',
+    controller: 'SideMenuCtrl'
+  })
+    .state('menu.tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
-
   // Each tab has its own nav history stack:
-  .state('tab.todos', {
+  .state('menu.tab.todos', {
       url: '/todos',
       views: {
-        'todos-tap': {
+        'todos-tab': {
           templateUrl: 'templates/todos.html',
-          controller: 'TodosCtrl'
+          controller: 'AllTodos'
         }
       }
     })
-    .state('tab.creation', {
+    .state('menu.tab.todos.todo', {
+        url: '/todo',
+        templateUrl: 'templates/templates/todo.html',
+        controller: 'AllTodos'
+    })
+    .state('menu.tab.todos.todo.edit', {
+        url: '/edit',
+        templateUrl: 'templates/templates/edit.html',
+        controller: 'AllTodos'
+    })
+    .state('menu.tab.creation', {
       url: '/creation',
       views: {
         'creation-tab': {
@@ -60,7 +87,7 @@ $ionicConfigProvider.tabs.position('top');
         }
       }
     })
-  .state('tab.settings', {
+  .state('menu.tab.settings', {
     url: '/settings',
     views: {
       'settings-tab': {
@@ -69,8 +96,7 @@ $ionicConfigProvider.tabs.position('top');
       }
     }
   });
-
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/todos');
+  $urlRouterProvider.otherwise('/menu/tab/todos');
 
 });

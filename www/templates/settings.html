@@ -1,8 +1,13 @@
-<ion-nav-view view-title="settings-tab">
+<ion-view view-title="Settings">
   <ion-content>
     <ion-list>
-        <div><p>Left/Right Menu</p></div>
-        <ion-toggle toggle-class="toggle-positive" ng-model="settings.radio"></ion-toggle>
+        <div><h2>Left/Right Menu</h2></div>
+              <div class="box"><ion-toggle toggle-class="toggle-positive" ng-model="settings.side" style="padding: 25px;"></ion-toggle></div>
+              <div class="delete_button">
+                <button class="button button-assertive" ng-click="removeTodoAll()">
+                  Delete All
+                </button>
+        </div>
     </ion-list>
   </ion-content>
-</ion-nav-view>
+</ion-view>

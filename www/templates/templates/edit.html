@@ -1,25 +1,24 @@
-<ion-view view-title="Edit">
+<ion-view view-title="Creation">
   <ion-content>
           <div class="block">Name:
               <div class="input_first">
-                  <input ng-model="newTodo.name":"{{todo.name}}" required></input>
+                  <input ng-model="newTodo.name":"{{todo.name}}" required>{{todo.name}}</input>
               </div>
-<!-- <button class="button icon-right ion-android-close" ng-click="remove(name)"></button> -->
           </div>
           <hr>
           <div  class="block">Description:
             <div class="input_second">
-              <input ng-model="newTodo.description":"{{todo.desription}}"></input>
+              <input ng-model="newTodo.description":"{{todo.desription}}">{{todo.desription}}</input>
             </div>
           </div>
           <hr>
           <div  class="block">Date:
             <div class="input_third">
-              <input ng-model="newTodo.date":"{{todo.date}}" required></input>
+              <input ng-model="newTodo.date":"{{todo.date}}" required>{{todo.date}}</input>
             </div>
           </div>
           <hr>
-          <div class="wrapper"><p class="tasks">Tasks:</p><div  class="new"></div></div>
+          <div class="wrapper"><p class="tasks">Tasks:</p><div  ng-class="{'new':todo.type===1, 'in_progress':todo.type===2, 'done':todo.type===3}" ng-click="classChange(todo)"></div></div>
           <hr>
           <div>
             <div class="buttons">
@@ -33,7 +32,8 @@
               </div>
           </div>
           <div class="add">
-              <button class="button button-positive" ng-click="addTodo(newTodo)">Save</button>
+              <button class="button button-positive" ng-click="addTodo($index)">Save</button>
           </div>
+          <a href="#/menu/tab/todos"><button class="button button-assertive">Back</button></a>
   </ion-content>
 </ion-view>

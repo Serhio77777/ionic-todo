@@ -1,1 +1,87 @@
 /* Empty. Add your own CSS if you like */
+.wrapper {
+    display: flex;
+    width: 100%;
+    padding-left: 10px;
+}
+.li {
+  width: 100%;
+}
+.center {
+  text-align: center;
+}
+
+.todo_name {
+    font-size: 20px;
+    color: #006400;
+    font-weight: 700;
+}
+.todo_descrition {
+  	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
+}
+.delete {
+    margin-top: -60px;
+    float: right;
+    padding-right: 10px;
+}
+
+.tasks {
+  color: #483D8B;
+  font-weight: 500;
+  font-size: 18px;
+}
+.new {
+    border-radius: 30px;
+    background-color: blue;
+    width: 20px;
+    height:20px;
+    margin-left: 10px;
+}
+.in_progress {
+    border-radius: 10px;
+    background-color: yellow;
+    width: 20px;
+    height:20px;
+    margin-left: 10px;
+}
+.done {
+    border-radius: 10px;
+    background-color: red;
+    width: 20px;
+    height:20px;
+    margin-left: 10px;
+}
+
+.block {
+    display: flex;
+    padding-left: 10px;
+    padding-top: 3px;
+}
+.input_first {
+    padding-left: 53px;
+}
+.input_second {
+    padding-left: 20px;
+}
+.input_third {
+    padding-left: 61px;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    background-color: #DCDCDC;
+}
+.add {
+  background-color: #DCDCDC;
+}
+
+.delete_button {
+    float: left;
+    padding: 20px;
+}
