@@ -23,16 +23,16 @@
           <div>
             <div class="buttons">
               <button class="button icon-left ion-camera button-positive" ng-click="takePicture()" style="padding-left:16px;"></button>
-              <button class="button icon-left ion-cube button-positive" ng-click="" style="padding-left:16px;"></button>
+              <button class="button icon-left ion-cube button-positive" ng-click="getPicture()" style="padding-left:16px;"></button>
             </div>
           </div>
           <div>
-              <div ng-model="item item-image">
-                  <img ng-src="http://placehold.it/100x100">
+              <div ng-model="picture">
+                  <img ng-src="{{picture}}">
               </div>
           </div>
           <div class="add">
-              <button class="button button-positive" ng-click="changeTodo($index)">Save</button>
+              <button class="button button-positive" ng-click="addTodo($index)">Save</button>
           </div>
           <a href="#/menu/tab/todos"><button class="button button-assertive">Back</button></a>
   </ion-content>

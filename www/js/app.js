@@ -68,16 +68,20 @@ $ionicConfigProvider.tabs.position('top');
         }
       }
     })
-    .state('menu.tab.todos.todo', {
-        url: '/todo',
-        templateUrl: 'templates/templates/todo.html',
-        controller: 'AllTodos'
+    .state('menu.tab.todo', {
+        url: '/todos/:todoId',
+        views: {
+          'todo':{
+            templateUrl: 'templates/into/todo.html',
+            controller: 'TodoDetailsCtrl'
+          }
+        }
     })
-    .state('menu.tab.todos.todo.edit', {
-        url: '/edit',
-        templateUrl: 'templates/templates/edit.html',
-        controller: 'AllTodos'
-    })
+    // .state('menu.tab.todos.todo.edit', {
+    //     url: '/edit',
+    //     templateUrl: 'templates/into/edit.html',
+    //     controller: 'AllTodos'
+    // })
     .state('menu.tab.creation', {
       url: '/creation',
       views: {
