@@ -1,3 +1,4 @@
+
 angular.module('starter.controllers',['ngCordova', 'ngStorage'])
 .controller('AllTodos', function($scope, $localStorage, My_service, $rootScope) {
     $scope.todos = My_service.getAll();
@@ -14,47 +15,81 @@ angular.module('starter.controllers',['ngCordova', 'ngStorage'])
         $scope.todos = My_service.getAll();
     });
 })
-.controller('CreationCtrl', function($scope, $localStorage, My_service, $cordovaCamera, $rootScope,  $cordovaFile, $cordovaImagePicker, Cam, LS) {
+.controller('CreationCtrl', function($scope, $localStorage, My_service, $cordovaCamera, $rootScope,  $cordovaFile, $cordovaImagePicker, $cordovaFile) {
     $scope.newTodo = {};
     $scope.todos = My_service.getAll();
-    $scope.picture = 'http://placehold.it/300x300';
+    $scope.rewriteTodo = {};
+    $scope.takePicture = function() {
+      var options = {
+        quality : 75,
+        destinationType : Camera.DestinationType.DATA_URL,
+        sourceType : Camera.PictureSourceType.CAMERA,
+        allowEdit : true,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 300,
+        targetHeight: 300,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: false
+      };
+
+      $cordovaCamera.getPicture(options).then(function(imageData) {
+        $scope.imgURI = "data:image/jpeg;base64," + imageData;
+        $scope.picture = $scope.imgURI;
+      }, function(err) {
+        console.error('err')
+      });
+    };
+    $scope.choosePhoto = function () {
+      var options = {
+        quality: 75,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+        allowEdit: true,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 300,
+        targetHeight: 300,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: false
+      };
+
+      $cordovaCamera.getPicture(options).then(function (imageData) {
+        $scope.imgURI = "data:image/jpeg;base64," + imageData;
+        $scope.picture = $scope.imgURI;
+      }, function (err) {
+        // An error occured. Show a message to the user
+      });
+    }
     $scope.addTodo = function (todo) {
         if (!todo) {
             return;
         };
-        $scope.todos = My_service.addTodo(todo);
+        if (!$scope.picture) {
+           console.log('undefined');
+        }
+        $scope.rewriteTodo.image = $scope.picture;
+        $scope.todos = My_service.rewriteTodo(todo, $scope.picture);
+        $rootScope.$emit('delete');
+        $rootScope.$broadcast('delete');
+        $scope.rewriteTodo = {};
+    };
+    $scope.rewriteTodo = function (todo) {
+        if (!todo) {
+            return;
+        };
+        if (!$scope.picture) {
+           console.log('undefined');
+        }
+        $scope.newTodo.image = $scope.picture;
+        $scope.todos = My_service.rewrite(todo, $scope.picture);
         $rootScope.$emit('delete');
         $rootScope.$broadcast('delete');
         $scope.newTodo = {};
+
     };
     $scope.changeTodo = function (todo) {
         $scope.todos = My_service.changeTodo(todo);
         $rootScope.$emit('delete');
     };
-    // $scope.picture = "http://placehold.it/300x300";
-
-    $scope.user = LS.getIt('user') || {};
-    $scope.showAlert = function(title, text) {
-      $ionicPopup.alert({
-        title: title,
-        template: text
-      });
-    };
-    $scope.setUser = function() {
-      LS.setIt('user', $scope.user);
-    };
-    $scope.getPic = function(source) {
-      var opt = {
-        sourceType: source
-      };
-      console.log(opt, source);
-      $scope.user.ava = res;
-      Cam.getPic(opt).then(function(res) {
-        $scope.setUser();
-      }, function(err) {
-        $scope.showAlert("Ошибка", err);
-      });
-    }
 })
 .controller('SettingsCtrl', function($scope, $localStorage, $ionicSideMenuDelegate, My_service, $rootScope) {
     $scope.removeTodoAll = function() {
@@ -83,15 +118,15 @@ angular.module('starter.controllers',['ngCordova', 'ngStorage'])
       $rootScope.$on('false', function(){
         $scope.variable = 'right';
         $scope.styleChange = {"justify-content":"flex-start"};
-        // $scope.otherSide = 'right';
-        // $ionicSideMenuDelegate.toggleRight();
+        $scope.shouldLeftSideMenuBeEnabled = true;
+        $scope.shouldRightSideMenuBeEnabled = false;
       });
       $rootScope.$on('true', function(){
           $scope.variable = 'left';
           $scope.styleChange = {"justify-content":"flex-end"};
-          // $scope.otherSide = 'left';
-          // $ionicSideMenuDelegate.toggleLeft();
-      });
+          $scope.shouldRightSideMenuBeEnabled = true;
+          $scope.shouldLeftSideMenuBeEnabled = false;
+        });
       $scope.openSideMenu = function() {
           if ($scope.variable === 'left') {
               $ionicSideMenuDelegate.toggleRight();

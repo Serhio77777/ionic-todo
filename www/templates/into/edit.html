@@ -1,20 +1,20 @@
-<ion-view view-title="Creation">
+<ion-view>
   <ion-content>
           <div class="block">Name:
               <div class="input_first">
-                  <input ng-model="newTodo.name":"{{todo.name}}" required>{{todo.name}}</input>
+                  <input ng-model="rewriteTodo.name":"{{todo.name}}" required>{{todo.name}}</input>
               </div>
           </div>
           <hr>
           <div  class="block">Description:
             <div class="input_second">
-              <input ng-model="newTodo.description":"{{todo.desription}}">{{todo.desription}}</input>
+              <input ng-model="rewriteTodo.description":"{{todo.desription}}">{{todo.desription}}</input>
             </div>
           </div>
           <hr>
           <div  class="block">Date:
             <div class="input_third">
-              <input ng-model="newTodo.date":"{{todo.date}}" required>{{todo.date}}</input>
+              <input ng-model="rewriteTodo.date":"{{todo.date}}" required>{{todo.date}}</input>
             </div>
           </div>
           <hr>
@@ -23,16 +23,17 @@
           <div>
             <div class="buttons">
               <button class="button icon-left ion-camera button-positive" ng-click="takePicture()" style="padding-left:16px;"></button>
-              <button class="button icon-left ion-cube button-positive" ng-click="getPicture()" style="padding-left:16px;"></button>
+              <button class="button icon-left ion-cube button-positive" ng-click="choosePhoto()" style="padding-left:16px;"></button>
             </div>
           </div>
           <div>
-              <div ng-model="picture">
-                  <img ng-src="{{picture}}">
-              </div>
+            <div>
+              <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
+              <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300">
+            </div>
           </div>
           <div class="add">
-              <button class="button button-positive" ng-click="addTodo($index)">Save</button>
+              <button class="button button-positive" ng-click="rewriteTodo($index)">Save</button>
           </div>
           <a href="#/menu/tab/todos"><button class="button button-assertive">Back</button></a>
   </ion-content>

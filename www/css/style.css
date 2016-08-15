@@ -2,7 +2,7 @@
 .wrapper {
     display: flex;
     width: 100%;
-    padding-left: 10px;
+    padding: 10px;
 }
 .li {
   width: 100%;
@@ -16,6 +16,16 @@
     color: #006400;
     font-weight: 700;
 }
+.todo_name_description {
+    font-size: 20px;
+    color: #FF0000;
+    font-weight: 700;
+}
+.todo_name_date {
+    font-size: 20px;
+    color: #000080;
+    font-weight: 700;
+}
 .todo_descrition {
   	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
     font-size: 24px;
@@ -25,50 +35,61 @@
     line-height: 26.4px;
 }
 .delete {
-    margin-top: -45px;
+    margin-top: -70px;
     float: right;
 }
 
 .tasks {
   color: #483D8B;
   font-weight: 500;
+  margin-top: 5px;
   font-size: 18px;
 }
 .new {
     border-radius: 30px;
     background-color: blue;
-    width: 20px;
-    height:20px;
+    width: 30px;
+    height:30px;
     margin-left: 10px;
+    border-radius: 30px;
 }
 .in_progress {
     border-radius: 10px;
     background-color: yellow;
-    width: 20px;
-    height:20px;
+    width: 30px;
+    height:30px;
     margin-left: 10px;
+    border-radius: 30px;
 }
 .done {
     border-radius: 10px;
     background-color: red;
-    width: 20px;
-    height:20px;
+    width: 30px;
+    height:30px;
     margin-left: 10px;
+    border-radius: 30px;
 }
 
 .block {
     display: flex;
     padding-left: 10px;
     padding-top: 3px;
+    font-size: 20px;
+    color: #000080;
+    font-weight: 700;
+}
+input {
+  border-color: #000080;
+  border-width: thick;
 }
 .input_first {
-    padding-left: 53px;
+    padding-left: 100px;
 }
 .input_second {
-    padding-left: 20px;
+    padding-left: 43px;
 }
 .input_third {
-    padding-left: 61px;
+    padding-left: 140px;
 }
 .buttons {
     display: flex;

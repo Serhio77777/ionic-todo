@@ -7,10 +7,9 @@ angular.module('starter.services',  ['ngCordova','ngStorage'])
     };
     return {
             getAll: function() {
-              console.log($localStorage.newTodosSave, $localStorage.newTodosSave.length);
                         return getTodos();
             },
-            addTodo: function(todo) {
+            addTodo: function(todo, myImage) {
                         todo.type = 1;
                         if (($localStorage.newTodosSave.length === 0) || ($localStorage.newTodosSave.length === undefined)){
                            max = 0;
@@ -27,6 +26,40 @@ angular.module('starter.services',  ['ngCordova','ngStorage'])
                         if (!todo.date) {
                             alert('Error: Enter date!');
                             return;
+                        }
+                        todo.image = myImage;
+                        if ($localStorage.newTodosSave === undefined) {
+                            $localStorage.newTodosSave = [];
+                            $localStorage.newTodosSave.push(todo);
+                        } else {
+                            $localStorage.newTodosSave.push(todo);
+                        };
+                        return getTodos();
+            },
+            rewriteTodo: function(todo, myImage) {
+                        todo.type = 1;
+                        if (($localStorage.newTodosSave.length === 0) || ($localStorage.newTodosSave.length === undefined)){
+                           max = 0;
+                           min = 0;
+                        } else {
+                          max = $localStorage.newTodosSave.length;
+                          min = $localStorage.newTodosSave.length;
+                        }
+                        todo.id = Math.floor(Math.random() * (max - min)) + min;
+                        if (!todo.name ) {
+                            alert('Error: Enter name!');
+                            return;
+                        }
+                        if (!todo.date) {
+                            alert('Error: Enter date!');
+                            return;
+                        }
+                        todo.image = myImage;
+                        for (var i = 0; i < todos.length; i++) {
+                            if (todos[i].id === parseInt(todoId)) {
+                              return $localStorage.newTodosSave = getTodos().filter(function(el, ind) {
+                                  return index !== ind;
+                              });                            }
                         }
                         if ($localStorage.newTodosSave === undefined) {
                             $localStorage.newTodosSave = [];
@@ -49,14 +82,8 @@ angular.module('starter.services',  ['ngCordova','ngStorage'])
             removeTodoAll: function() {
                                 return $localStorage.newTodosSave = [];
             },
-            // remove: function(someplace) {
-            // },
-            //     return $localStorage.newTodosSave.name = $localStorage.newTodosSave.name.slice(0, -1);
-            savePicture: function(image, todo) {
-                $localStorage.newTodosSave.picture = image;
-            },
             get: function(todoId) {
-                console.log(todoId);
+                var todos = $localStorage.newTodosSave;
                 for (var i = 0; i < todos.length; i++) {
                     if (todos[i].id === parseInt(todoId)) {
                         return todos[i];
@@ -79,41 +106,4 @@ angular.module('starter.services',  ['ngCordova','ngStorage'])
             }
 
     };
-})
-.factory('Cam', function($q) {
-  return {
-    getPic: function(opt) {
-      var q = $q.defer(), res;
-      console.log(res, opt);
-    navigator.camera.getPicture(function(res) {
-        q.resolve(res);
-      }, function(err) {
-        q.reject(err);
-      }, opt);
-      return q.promise;
-    }
-  };
-})
-.factory('LS', function($localStorage, $cordovaCamera) {
-  return {
-    getIt: function(item) {
-      var it = false;
-      try {
-        it = JSON.parse(localStorage.getItem(item));
-        return it;
-      } catch(e) {
-        console.log(e);
-        return it;
-      }
-    },
-    setIt: function(item, obj) {
-      try {
-        localStorage.setItem(item, JSON.stringify(obj));
-        return true;
-      } catch(e) {
-      }
-        console.err(e);
-        return false;
-      }
-  };
 });

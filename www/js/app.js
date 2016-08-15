@@ -71,17 +71,21 @@ $ionicConfigProvider.tabs.position('top');
     .state('menu.tab.todo', {
         url: '/todos/:todoId',
         views: {
-          'todo':{
+          'todos-tab':{
             templateUrl: 'templates/into/todo.html',
             controller: 'TodoDetailsCtrl'
           }
         }
     })
-    // .state('menu.tab.todos.todo.edit', {
-    //     url: '/edit',
-    //     templateUrl: 'templates/into/edit.html',
-    //     controller: 'AllTodos'
-    // })
+    .state('menu.tab.todos.edit', {
+        url: '/todos/:todoId/edit',
+        views: {
+          'todos-tab':{
+            templateUrl: 'templates/into/edit.html',
+            controller: 'CreationCtrl'
+          }
+        }
+    })
     .state('menu.tab.creation', {
       url: '/creation',
       views: {

@@ -8,7 +8,7 @@
           <hr>
           <div  class="block">Description:
             <div class="input_second">
-              <input ng-model="newTodo.description":"{{todo.desription}}" placeholder="Type Description" ></input>
+              <input ng-model="newTodo.description":"{{todo.description}}" placeholder="Type Description" ></input>
             </div>
           </div>
           <hr>
@@ -22,13 +22,14 @@
           <hr>
           <div>
             <div class="buttons">
-              <button class="button icon-left ion-camera button-positive" ng-click="getPicture(1);" style="padding-left:16px;"></button>
-              <button class="button icon-left ion-cube button-positive" ng-click="getPicture(0);" style="padding-left:16px;"></button>
+              <button class="button icon-left ion-camera button-positive" ng-click="takePicture()" style="padding-left:16px;"></button>
+              <button class="button icon-left ion-cube button-positive" ng-click="choosePhoto()" style="padding-left:16px;"></button>
             </div>
           </div>
           <div>
             <div>
-              <img class="full-image" ng-src="{{todo.image ||  './img/first.jpg'}}">
+              <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
+              <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300">
             </div>
           </div>
           <div class="add">
