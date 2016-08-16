@@ -14,9 +14,10 @@ angular.module('starter.controllers',['ngCordova', 'ngStorage'])
         $scope.todos = My_service.getAll();
     });
 })
-.controller('CreationCtrl', function($scope, $localStorage, My_service, $cordovaCamera, $rootScope,  $cordovaFile, $cordovaImagePicker, $cordovaFile) {
+.controller('CreationCtrl', function($scope, $localStorage, My_service, $cordovaCamera, $rootScope,  $cordovaFile, $cordovaImagePicker, $cordovaFile, $stateParams) {
     $scope.newTodo = {};
     $scope.todos = My_service.getAll();
+    $scope.todo = My_service.get($stateParams.todoId);
     $scope.takePicture = function() {
         var options = {
             quality : 75,

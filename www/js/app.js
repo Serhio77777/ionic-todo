@@ -84,7 +84,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     .state('menu.tab.edit', {
       url: '/todos/:todoId/edit',
         views: {
-            'todoId':{
+            'todos-tab':{
                 templateUrl: 'templates/into/edit.html',
                 controller: 'CreationCtrl'
             }
