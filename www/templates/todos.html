@@ -12,10 +12,10 @@
                 </div>
                 <div class="wrapper">
                     <h1 class="tasks" ng-click="classChange(todo)">Task:</h1>
-                    <div ng-class="{'new':todo.type===1, 'in_progress':todo.type===2, 'done':todo.type===3}" ng-click="classChange(todo)"></div>
+                    <div ng-class="{'new':todo.type===1, 'in_progress':todo.type===2, 'done':todo.type===3}" ng-click="classChange(todo)" style="box-shadow: 0 0 3px #212121;"></div>
                 </div>
                 <div class="delete">
-                    <button class="button icon-right ion-android-close button-assertive" ng-click="removeTodo($index)" style="padding-right:17px;"></button>
+                    <button class="button icon-right ion-android-close button-assertive" ng-click="removeTodo($index)" style="padding-right:17px; box-shadow: 1px 1px 1px black;"></button>
                 </div>
             </ion-item>
           </ion-list>

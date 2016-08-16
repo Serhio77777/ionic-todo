@@ -1,7 +1,6 @@
 /* Empty. Add your own CSS if you like */
 .content {
-    background-color: blue;
-    background: url('/img/side.jpg') no-repeat;
+    background-color: #607D8B;
 }
 .title_sidemenu {
     text-align: center;
@@ -9,6 +8,18 @@
     font-weight: 800;
     font-size: 30px;
     font-family: 'Century Gothic', CenturyGothic, AppleGothic, serif;
+}
+.sidemenu_name_little {
+    text-align: left;
+    width: 70px;
+    float: left;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, serif;
+}
+.sidemenu_name {
+    font-size: 17px;
+    color: #FFFF00;
+    font-weight: 900;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
 }
 .tasks_sidemenu {
     color: #FFFAF0;
@@ -19,9 +30,6 @@
 }
 .all_todos {
     background: #4169E1;
-}
-.todo_content {
-    background: url('/img/todo.jpg') no-repeat;
 }
 .wrapper {
     display: flex;
@@ -36,6 +44,9 @@
 }
 
 
+.todo_content {
+  background: #303F9F;
+}
 .todo_name {
     font-size: 20px;
     color: #FFFF00;
@@ -72,22 +83,22 @@
   font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
 }
 .todo_first {
-    background-color: #FF0000;
+    background-color: #607D8B;
 }
 .todo_second {
-    background-color: #FF4500;
+    background-color: #E9E9E9;
 }
 .todo_third {
-    background-color: #FFFF00;
+    background-color: #CFD8DC;
 }
 .todo_fourth {
-    background-color: #008000;
+    background-color: #607D8B;
 }
 .todo_fifth {
-    background-color: #0000FF;
+    background-color: #455A64;
 }
 .todo_buttons {
-    background-color: #800080;
+    background-color: #757575;
     display: flex;
     justify-content: space-between;
 }
@@ -133,15 +144,15 @@
     font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
 }
 .new {
-    border-radius: 30px;
     background-color: #191970;
+    border-radius: 30px;
     width: 30px;
     height:30px;
     margin-left: 10px;
     border-radius: 30px;
 }
 .in_progress {
-    border-radius: 10px;
+    border-radius: 30px;
     background-color: yellow;
     width: 30px;
     height:30px;
@@ -149,7 +160,7 @@
     border-radius: 30px;
 }
 .done {
-    border-radius: 10px;
+    border-radius: 30px;
     background-color: red;
     width: 30px;
     height:30px;
@@ -185,7 +196,6 @@ input {
 
 .delete_button {
     padding: 20px;
-
 }
 
 button {
@@ -204,10 +214,10 @@ button {
 }
 
 .settings {
-    background: url('/img/settings.jpg') no-repeat;
+    background: #212121;
 }
 .switch {
-    background: url('/img/toggle.jpg') no-repeat;
+    background: #BDBDBD;
     padding: 30px;
     text-align: center;
 }

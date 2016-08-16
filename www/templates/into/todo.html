@@ -20,7 +20,7 @@
         <div class="todo_fourth">
             <div class="wrapper">
                 <p class="tasks_sidemenu">Tasks:</p>
-                <div  ng-class="{'new':todo.type===1, 'in_progress':todo.type===2, 'done':todo.type===3}" ng-click="classChange(todo)"></div>
+                <div  ng-class="{'new':todo.type===1, 'in_progress':todo.type===2, 'done':todo.type===3}" ng-click="classChange(todo)"  style="box-shadow: 0 0 3px #212121;"></div>
               </div>
         </div>
         <div class="todo_fifth">
@@ -29,12 +29,12 @@
         <div class="todo_buttons">
           <div class="todo_button">
             <a nav-direction="forward" href="#/menu/tab/todos">
-              <button class="button button-positive"><div class="button_into">Back</div></button>
+              <button class="button button-positive" style="box-shadow: 2px 2px 5px black;"><div class="button_into">Back</div></button>
             </a>
           </div>
           <div class="todo_button">
               <a href="#/menu/tab/todos/{{todo.id}}/edit">
-                  <button class="button button-balanced"><div class="button_into">Edit</div></button>
+                  <button class="button button-balanced" style="box-shadow: 2px 2px 5px black;"><div class="button_into">Edit</div></button>
               </a>
           </div>
         </div>
