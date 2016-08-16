@@ -1,39 +1,43 @@
 <ion-view view-title="Edit">
-  <ion-content>
-          <div class="block">Name:
-              <div class="input_first">
-                  <input ng-model="newTodo.name":"{{todo.name}}" placeholder="Type Name" required></input>
-              </div>
-          </div>
-          <hr>
-          <div  class="block">Description:
-            <div class="input_second">
-              <input ng-model="newTodo.description":"{{todo.description}}" placeholder="Type Description" ></input>
+    <ion-content class="creation">
+            <div class="block"><div class="name_imput">Name:</div>
+                <div>
+                    <input ng-model="newTodo.name":"{{todo.name}}" placeholder="Type Name" required></input>
+                </div>
             </div>
-          </div>
-          <hr>
-          <div  class="block">Date:
-            <div class="input_third">
-              <input type="date" min="1940-01-01" ng-model="newTodo.date":"{{todo.date}}" required></input>
+            <hr>
+            <div  class="block"><div class="name_imput">Description:</div>
+                <div>
+                    <input ng-model="newTodo.description":"{{todo.description}}" placeholder="Type Description" ></input>
+                </div>
             </div>
-          </div>
-          <hr>
-          <div class="wrapper"><p class="tasks">Tasks:</p><div  class="new"></div></div>
-          <hr>
-          <div>
-            <div class="buttons">
-              <button class="button icon-left ion-camera button-positive" ng-click="takePicture()" style="padding-left:16px;"></button>
-              <button class="button icon-left ion-cube button-positive" ng-click="choosePhoto()" style="padding-left:16px;"></button>
+            <hr>
+            <div  class="block"><div class="name_imput">Date:</div>
+                <div>
+                    <input type="date" min="1940-01-01" ng-model="newTodo.date":"{{todo.date}}" required></input>
+                </div>
             </div>
-          </div>
-          <div>
+            <hr>
+            <div class="wrapper"><p class="tasks_creation">Task:</p><div ng-class="{'new':newTodo.type===1, 'in_progress':newTodo.type===2, 'done':newTodo.type===3}" ng-click="classCreationChange()"></div></div>
+            <hr>
             <div>
-              <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
-              <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300">
+                <div class="buttons">
+                    <div class="camera">
+                        <button class="button icon-left ion-camera button-positive" ng-click="takePicture()" style="padding-left:16px;  margin-left:10px;"></button>
+                    </div>
+                    <div class="save">
+                        <button class="button button-assertive" ng-click="addTodo(newTodo)" style="padding:0 40px 0 40px">Save</button>
+                    </div>
+                    <div class="download">
+                        <button class="button icon-left ion-cube button-positive" ng-click="choosePhoto()" style="padding-left:16px; margin-right:10px;"></button>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="add">
-              <button class="button button-positive" ng-click="addTodo(newTodo)">Save</button>
-          </div>
-  </ion-content>
+            <div>
+                <div>
+                    <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
+                    <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300">
+                </div>
+            </div>
+    </ion-content>
 </ion-view>

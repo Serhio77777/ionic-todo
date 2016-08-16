@@ -1,13 +1,13 @@
 <ion-view view-title="Settings">
-  <ion-content>
-    <ion-list>
-        <div><h2>Left/Right Menu</h2></div>
-              <div class="box"><ion-toggle toggle-class="toggle-positive" ng-model="settings.side" style="padding: 25px;"></ion-toggle></div>
-              <div class="delete_button">
-                <button class="button button-assertive" ng-click="removeTodoAll()">
-                  Delete All
-                </button>
-        </div>
-    </ion-list>
-  </ion-content>
+    <ion-content class="settings">
+            <div class="settings_title_block">
+                <h2 class="settings_title">Choose Side</h2>
+            </div>
+            <div class="box">
+            </div>
+                <ion-toggle class="switch" toggle-class="toggle-assertive" ng-model="settings.side"></ion-toggle>
+            <div class="delete_button">
+                <button class="button button-assertive" ng-click="removeTodoAll()"><div class="delete_button_inside">Delete All</div></button>
+            </div>
+    </ion-content>
 </ion-view>

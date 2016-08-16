@@ -1,53 +1,140 @@
 /* Empty. Add your own CSS if you like */
+.content {
+    background-color: blue;
+    background: url('/img/side.jpg') no-repeat;
+}
+.title_sidemenu {
+    text-align: center;
+    color: #FFFAF0;
+    font-weight: 800;
+    font-size: 30px;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, serif;
+}
+.tasks_sidemenu {
+    color: #FFFAF0;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
+    font-weight: 900;
+    margin-top: 5px;
+    font-size: 18px;
+}
+.all_todos {
+    background: #4169E1;
+}
+.todo_content {
+    background: url('/img/todo.jpg') no-repeat;
+}
 .wrapper {
     display: flex;
     width: 100%;
     padding: 10px;
 }
 .li {
-  width: 100%;
+    width: 100%;
 }
 .center {
-  text-align: center;
+    text-align: center;
 }
+
 
 .todo_name {
     font-size: 20px;
-    color: #006400;
+    color: #FFFF00;
     font-weight: 700;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
 }
 .todo_name_description {
     font-size: 20px;
-    color: #FF0000;
+    color: #800080;
     font-weight: 700;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
 }
 .todo_name_date {
     font-size: 20px;
-    color: #000080;
+    color: #FF0000;
     font-weight: 700;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
 }
 .todo_descrition {
-  	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
     font-size: 24px;
     font-style: normal;
     font-variant: normal;
     font-weight: 500;
     line-height: 26.4px;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
+}
+.todo_name_little {
+    text-align: left;
+    width: 150px;
+    float: left;
+}
+.button_into {
+  font-size: 24px;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
+}
+.todo_first {
+    background-color: #FF0000;
+}
+.todo_second {
+    background-color: #FF4500;
+}
+.todo_third {
+    background-color: #FFFF00;
+}
+.todo_fourth {
+    background-color: #008000;
+}
+.todo_fifth {
+    background-color: #0000FF;
+}
+.todo_buttons {
+    background-color: #800080;
+    display: flex;
+    justify-content: space-between;
+}
+.todo_button {
+    margin: 10px;
+    padding: 10px;
 }
 .delete {
-    margin-top: -70px;
+    margin-right: -30px;
+    margin-top: -60px;
     float: right;
 }
 
+.todos_name {
+    font-size: 15px;
+    color: #FFFF00;
+    font-weight: 700;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
+}
+.todos_description {
+    color: black;
+    font-weight: 700;
+    font: italic 16px Georgia;
+}
+.place {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.todos_name_little {
+    text-align: left;
+    width: 100px;
+    font-weight: 700;
+    float: left;
+    color: #F5FFFA;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
+    font-size: 15px;
+}
 .tasks {
-  color: #483D8B;
-  font-weight: 500;
-  margin-top: 5px;
-  font-size: 18px;
+    padding-top: 5px;
+    font-size: 15px;
+    color: #F5FFFA;
+    font-weight: 700;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
 }
 .new {
     border-radius: 30px;
-    background-color: blue;
+    background-color: #191970;
     width: 30px;
     height:30px;
     margin-left: 10px;
@@ -78,18 +165,13 @@
     color: #000080;
     font-weight: 700;
 }
+.name_imput {
+    text-align: left;
+    width: 200px;
+}
 input {
-  border-color: #000080;
-  border-width: thick;
-}
-.input_first {
-    padding-left: 100px;
-}
-.input_second {
-    padding-left: 43px;
-}
-.input_third {
-    padding-left: 140px;
+    border-color: #F5F5DC;
+    border-width: thick;
 }
 .buttons {
     display: flex;
@@ -98,10 +180,50 @@ input {
     background-color: #DCDCDC;
 }
 .add {
-  background-color: #DCDCDC;
+    background-color: #DCDCDC;
 }
 
 .delete_button {
-    float: left;
     padding: 20px;
+
+}
+
+button {
+    padding: 10px 20px 10px 20px;
+    margin: 10px 20px 10px 20px;
+}
+
+.creation {
+    background-color: #DCDCDC;
+}
+.tasks_creation {
+    padding-top: 5px;
+    font-weight: 700;
+    font-size: 20px;
+    color: #000080;
+}
+
+.settings {
+    background: url('/img/settings.jpg') no-repeat;
+}
+.switch {
+    background: url('/img/toggle.jpg') no-repeat;
+    padding: 30px;
+    text-align: center;
+}
+.settings_title_block {
+    padding-top: 10px;
+}
+.settings_title {
+  text-align: center;
+  color: #FFFAF0;
+  font-weight: 800;
+  font-size: 30px;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, serif;
+}
+.delete_button_inside {
+    padding: 25px 40px 25px 40px;
+    font-weight: 800;
+    font-size: 30px;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, serif;
 }
