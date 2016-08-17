@@ -49,6 +49,7 @@ angular.module('starter.services',  ['ngCordova','ngStorage'])
                         var todos = $localStorage.newTodosSave;
                         for (var i = 0; i < todos.length; i++) {
                             if (todos[i].id === parseInt(todoId)) {
+                                todos[i].date = new Date(todos[i].date);
                                 return todos[i];
                             }
                         }

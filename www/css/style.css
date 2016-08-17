@@ -1,12 +1,13 @@
 /* Empty. Add your own CSS if you like */
 .content {
-    background-color: #607D8B;
+    background-color: #616161;
 }
 .title_sidemenu {
     text-align: center;
     color: #FFFAF0;
     font-weight: 800;
     font-size: 30px;
+    padding-top: 20px;
     font-family: 'Century Gothic', CenturyGothic, AppleGothic, serif;
 }
 .sidemenu_name_little {
@@ -43,13 +44,12 @@
     text-align: center;
 }
 
-
 .todo_content {
   background: #303F9F;
 }
 .todo_name {
     font-size: 20px;
-    color: #FFFF00;
+    color: #5D4037;
     font-weight: 700;
     font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
 }
@@ -63,7 +63,6 @@
     font-size: 20px;
     color: #FF0000;
     font-weight: 700;
-    font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
 }
 .todo_descrition {
     font-size: 24px;
@@ -71,45 +70,29 @@
     font-variant: normal;
     font-weight: 500;
     line-height: 26.4px;
-    font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
 }
 .todo_name_little {
     text-align: left;
     width: 150px;
     float: left;
 }
-.button_into {
-  font-size: 24px;
-  font-family: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
+.tasks_todo {
+    padding-top: 10px;
+    font-size: 20px;
+    color: #303F9F;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 900;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, serif;
 }
-.todo_first {
-    background-color: #607D8B;
-}
-.todo_second {
-    background-color: #E9E9E9;
-}
-.todo_third {
-    background-color: #CFD8DC;
-}
-.todo_fourth {
-    background-color: #607D8B;
-}
-.todo_fifth {
-    background-color: #455A64;
+.todo {
+  background-color: #CFD8DC;
 }
 .todo_buttons {
-    background-color: #757575;
+    background-color: #C5CAE9;
     display: flex;
     justify-content: space-between;
-}
-.todo_button {
-    margin: 10px;
     padding: 10px;
-}
-.delete {
-    margin-right: -30px;
-    margin-top: -60px;
-    float: right;
 }
 
 .todos_name {
@@ -146,7 +129,7 @@
 .block {
     display: flex;
     padding-left: 10px;
-    padding-top: 3px;
+    padding-top: 15px;
     font-size: 20px;
     color: #000080;
     font-weight: 700;
@@ -156,8 +139,11 @@
     width: 200px;
 }
 input {
-    border-color: #F5F5DC;
-    border-width: thick;
+    margin-bottom: 5px;
+}
+.delete {
+    float: right;
+    margin-top: -50px;
 }
 .buttons {
     display: flex;
@@ -168,11 +154,6 @@ input {
 .add {
     background-color: #DCDCDC;
 }
-
-.delete_button {
-    padding: 20px;
-}
-
 
 .creation {
     background-color: #DCDCDC;
@@ -193,7 +174,7 @@ input {
     text-align: center;
 }
 .settings_title_block {
-    padding-top: 10px;
+    padding-top: 20px;
 }
 .settings_title {
   text-align: center;
@@ -202,13 +183,25 @@ input {
   font-size: 30px;
   font-family: 'Century Gothic', CenturyGothic, AppleGothic, serif;
 }
-.delete_button_inside {
-    padding: 25px 40px 25px 40px;
+
+.button_inside_another {
+    padding: 0 40px 0 40px;
     font-weight: 800;
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'Century Gothic', CenturyGothic, AppleGothic, serif;
 }
-
+.button_inside {
+    padding: 10px 40px 10px 40px;
+    font-weight: 800;
+    font-size: 25px;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, serif;
+}
+.button_inside_todo {
+    padding: 0 10px 0 10px;
+    font-weight: 800;
+    font-size: 20px;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, serif;
+}
 .button_new_back_todo {
     position: relative;
     display: inline-block;
@@ -219,12 +212,12 @@ input {
     text-shadow: 1px 1px 2px black;
     padding: 20px 20px 20px 20px;
     outline: none;
-    border-radius: 25px;
+    border-radius: 15px;
     background: linear-gradient(#3F51B5, #303F9F);
     box-shadow:
-     0 1px rgba(255,255,255,.2) inset,
+     0 1px rgba(0,0,0,.2) inset,
      0 3px 5px rgba(0,1,6,.5),
-     0 0 1px 1px rgba(0,1,6,.2);
+     0 0 1px 1px rgba(0,0,0,.2);
 }
 .button_new_back_todo:hover:not(:active) {
     background: #303F9F;
@@ -237,7 +230,6 @@ input {
      0 2px 3px black inset,
      0 1px 1px black;
 }
-
 .button_new_edit {
     position: relative;
     display: inline-block;
@@ -248,12 +240,12 @@ input {
     text-shadow: 1px 1px 2px black;
     padding: 20px 20px 20px 20px;
     outline: none;
-    border-radius: 25px;
+    border-radius: 15px;
     background: linear-gradient(#4CAF50, #388E3C);
     box-shadow:
-     0 1px rgba(255,255,255,.2) inset,
+     0 1px rgba(0,0,0,.2) inset,
      0 3px 5px rgba(0,1,6,.5),
-     0 0 1px 1px rgba(0,1,6,.2);
+     0 0 1px 1px rgba(0,0,0,.2);
     transition: .2s ease-in-out;
 }
 .button_new_edit:hover:not(:active) {
@@ -332,8 +324,8 @@ input {
     padding: 5px 10px 5px 10px;
     margin-right: -15px;
     outline: none;
-    font-size: 25px;
-    padding: 20px 30px 20px 30px;
+    font-size: 30px;
+    padding: 10px 20px 10px 20px;
     border-radius: 20px;
     background: linear-gradient(#F44336, #D32F2F);
     box-shadow:
@@ -355,12 +347,12 @@ input {
 .button_new_delete_all {
     position: relative;
     display: inline-block;
-    font-size: 90%;
     font-weight: 700;
     color: #FFFFFF;
     text-decoration: none;
     text-shadow: 1px 1px 2px black;
     padding: 20px 20px 20px 20px;
+    margin-top: 20px;
     outline: none;
     border-radius: 25px;
     background: linear-gradient(#F44336, #D32F2F);
@@ -383,13 +375,12 @@ input {
 .button_new_save {
     position: relative;
     display: inline-block;
-    font-size: 90%;
-    font-weight: 700;
+    font-weight: 900;
     color: #FFFFFF;
     text-decoration: none;
-    font-size: 20px;
     text-shadow: 1px 1px 2px black;
-    padding: 15px 40px 15px 40px;
+    font-size: 20px;
+    padding: 20px 0 20px 0;
     outline: none;
     border-radius: 15px;
     background: linear-gradient(#F44336, #D32F2F);
@@ -417,8 +408,7 @@ input {
     color: #FFFFFF;
     text-decoration: none;
     text-shadow: 1px 1px 2px black;
-    font-size: 20px;
-    padding: 15px 40px 15px 40px;
+    padding: 20px 0 10px 0;
     outline: none;
     border-radius: 15px;
     background: linear-gradient(#F44336, #D32F2F);
@@ -445,8 +435,9 @@ input {
     font-weight: 700;
     color: #FFFFFF;
     text-decoration: none;
+    text-align: center;
     text-shadow: 1px 1px 2px black;
-    padding: 15px 40px 15px 40px;
+    padding: 5px 40px 5px 40px;
     outline: none;
     border-radius: 15px;
     background: linear-gradient(#3F51B5, #303F9F);
@@ -459,6 +450,63 @@ input {
     background: linear-gradient(#3F51B5, #303F9F);
 }
 .button_new_all_todos:active {
+    top: 1px;
+    background: #303F9F;
+    box-shadow:
+     0 0 1px black inset,
+     0 2px 3px black inset,
+     0 1px 1px black;
+}
+.button_new_camera {
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 15px 20px 15px 20px;
+    margin: 0;
+    outline: none;
+    border-radius: 15px;
+    background: linear-gradient(#3F51B5, #303F9F);
+    box-shadow:
+     0 1px rgba(255,255,255,.2) inset,
+     0 3px 5px rgba(0,1,6,.5),
+     0 0 1px 1px rgba(0,1,6,.2);
+}
+.button_new_camera:hover:not(:active) {
+    background: linear-gradient(#3F51B5, #303F9F);
+}
+.button_new_camera:active {
+    top: 1px;
+    background: #303F9F;
+    box-shadow:
+     0 0 1px black inset,
+     0 2px 3px black inset,
+     0 1px 1px black;
+}
+.button_new_download {
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    padding: 15px 20px 15px 20px;
+    margin: 0;
+    outline: none;
+    border-radius: 15px;
+    background: linear-gradient(#3F51B5, #303F9F);
+    box-shadow:
+     0 1px rgba(255,255,255,.2) inset,
+     0 3px 5px rgba(0,1,6,.5),
+     0 0 1px 1px rgba(0,1,6,.2);
+}
+.button_new_download:hover:not(:active) {
+    background: linear-gradient(#3F51B5, #303F9F);
+}
+.button_new_download:active {
     top: 1px;
     background: #303F9F;
     box-shadow:

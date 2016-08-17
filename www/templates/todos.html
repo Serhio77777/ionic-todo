@@ -3,9 +3,9 @@
         <ion-list>
             <ion-item class="item-remove-animate item-icon-right item-positive" ng-repeat="todo in todos track by $index" type="item-text-wrap" href="#/menu/tab/todos/{{todo.id}}">
                 <div class="wrapper">
-                    <h5><div class="todos_name_little">Name:</div>
-                        <span class="todos_name">{{todo.name}}</span>
-                        <div  ng-show="todo.description !== undefined"  class="place">
+                    <h5>
+                        <div class="todos_name_little">Name:</div><span class="todos_name">{{todo.name}}</span>
+                        <div  ng-show="todo.description"  class="place">
                             <span class="todos_description">"{{todo.description}}"</span>
                         </div>
                     </h5>

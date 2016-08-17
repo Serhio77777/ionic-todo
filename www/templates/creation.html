@@ -18,20 +18,20 @@
                 </div>
             </div>
             <hr>
-                <div class="wrapper"><p class="tasks_creation">Task:</p><div ng-class="{'new':newTodo.type===1, 'in_progress':newTodo.type===2, 'done':newTodo.type===3}" ng-click="classCreationChange()" style="box-shadow: 0 0 3px black;"></div></div>
+                <div class="wrapper"><p class="tasks_creation">Task(Click to change):</p><div ng-class="{'new':newTodo.type===1, 'in_progress':newTodo.type===2, 'done':newTodo.type===3}" ng-click="classCreationChange()" style="box-shadow: 0 0 3px black;"></div></div>
             <hr>
             <div>
                 <div class="buttons">
-                    <div class="camera">
-                        <button class="button icon-left ion-camera button-positive" ng-click="takePicture()" style="padding-left:16px;  margin-left:10px; box-shadow: 1px 1px 4px black;"></button>
+                    <div class="button_new_camera">
+                        <div class="icon-center ion-camera" ng-click="takePicture()"></div>
                     </div>
                     <div class="save">
-                        <a href="#/menu/tab/todos">
-                            <div class="button_new_save" ng-click="addTodo(newTodo)" >Save</div>
+                        <a href="#/menu/tab/todos" class="button_new_save" ng-click="addTodo(newTodo)">
+                            <div class="button_inside_another">Save</div>
                         </a>
                     </div>
-                    <div class="download">
-                        <button class="button icon-left ion-cube button-positive" ng-click="choosePhoto()" style="padding-left:16px; margin-right:10px; box-shadow: 1px 1px 4px black;"></button>
+                    <div class="button_new_download">
+                        <div class="icon-center ion-archive" ng-click="choosePhoto()"></div>
                     </div>
                 </div>
             </div>
