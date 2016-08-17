@@ -514,3 +514,21 @@ input {
      0 2px 3px black inset,
      0 1px 1px black;
 }
+
+.tabs-striped.tabs-royal .tabs {
+    background-color: #303F9F;
+    height: 70px;
+}
+.tab-item .icon {
+    font-size: 40px;
+    height: 45px;
+}
+span.tab-title.ng-binding {
+    font-size: 12px;
+}
+.tabs-striped.tabs-royal .tab-item {
+    color: #C5CAE9;
+}
+ion-tabs.tabs-striped.tabs-color-active-energized .tab-item.tab-item-active {
+    color: #FFC107;
+}
