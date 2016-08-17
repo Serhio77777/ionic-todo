@@ -1,5 +1,5 @@
 <ion-view>
-  <ion-content>
+  <ion-content class="creation">
     <div class="block"><div class="name_imput">Name:</div>
         <div>
             <input ng-model="todo.name":"{{todo.name}}" placeholder="Type Name" required></input>
@@ -26,9 +26,7 @@
                 <button class="button icon-left ion-camera button-positive" ng-click="takePicture()" style="padding-left:16px;  margin-left:10px; box-shadow: 1px 1px 4px black;"></button>
             </div>
             <div class="save">
-                <a nav-direction="forward" href="#/menu/tab/todos/{{todo.id}}">
-                    <button class="button button-balanced" style="padding:0 40px 0 40px; box-shadow: 2px 2px 3px black;">Back</button>
-                </a>
+                <a class="button_new_back" nav-direction="forward" href="#/menu/tab/todos/{{todo.id}}">Back</a>
             </div>
             <div class="download">
                 <button class="button icon-left ion-cube button-positive" ng-click="choosePhoto()" style="padding-left:16px; margin-right:10px; box-shadow: 1px 1px 4px black;"></button>
@@ -41,8 +39,8 @@
             <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300">
         </div>
     </div>
-    <a href="#/menu/tab/todos">
-        <button class="button button-calm" style="padding:0 70px 0 70px; box-shadow: 2px 2px 3px black;">All Todos</button>
+    <a class="button_new_all_todos" nav-direction="forward" href="#/menu/tab/todos">
+        <div class="delete_button_inside">All Todos</div>
     </a>
   </ion-content>
 </ion-view>

@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="todo_second">
-            <div class="wrapper" ng-show="todo.description !== undefined">
+            <div class="wrapper" ng-show="todo.description !== undefined || todo.description !== ''">
                 <h5><div><span class="todo_name_description"><div class="todo_name_little">Discription:</div> {{todo.description}}</span></h5></div>
             </div>
         </div>
@@ -28,13 +28,13 @@
         </div>
         <div class="todo_buttons">
           <div class="todo_button">
-            <a nav-direction="forward" href="#/menu/tab/todos">
-              <button class="button button-positive" style="box-shadow: 2px 2px 5px black;"><div class="button_into">Back</div></button>
+            <a class="button_new_back_todo" nav-direction="forward" href="#/menu/tab/todos">
+                <div class="button_into">Back</div>
             </a>
           </div>
           <div class="todo_button">
-              <a href="#/menu/tab/todos/{{todo.id}}/edit">
-                  <button class="button button-balanced" style="box-shadow: 2px 2px 5px black;"><div class="button_into">Edit</div></button>
+              <a class="button_new_edit" href="#/menu/tab/todos/{{todo.id}}/edit">
+                  <div class="button_into">Edit</div></button>
               </a>
           </div>
         </div>
