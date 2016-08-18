@@ -32,9 +32,8 @@ angular.module('starter.services',  ['ngCordova','ngStorage'])
                         };
                         return $localStorage.newTodosSave;
             },
-            changeTodo: function(todo) {
-                        todo.id = Math.floor(Math.random() * (max - min)) + min;
-                        $localStorage.newTodosSave.push(todo);
+            rewriteTodo: function(todo, anotherImage) {
+                        todo.image = anotherImage;
                         return $localStorage.newTodosSave;
             },
             removeTodo: function(index) {
@@ -64,6 +63,23 @@ angular.module('starter.services',  ['ngCordova','ngStorage'])
                           case 3: todo.type = 1;
                             break;
                         }
+            },
+            getSide: function() {
+                        console.log($localStorage.side);
+                        return $localStorage.side;
+            },
+            sideMenu: function(value) {
+                        $localStorage.side = value;
             }
     };
 });
+// .factory('Side_service', function($localStorage, $cordovaCamera, $ionicSideMenuDelegate) {
+//     return {
+//             getSide: function() {
+//                         return $localStorage.newSide;
+//             },
+//             sidemenuSide: function(side) {
+//                         $localStorage.newSide = side;
+//             }
+//     };
+// });

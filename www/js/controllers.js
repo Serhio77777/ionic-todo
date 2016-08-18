@@ -1,18 +1,41 @@
 angular.module('starter.controllers',['ngCordova', 'ngStorage'])
+.controller('SideMenuCtrl', function($scope, $localStorage, My_service, $ionicSideMenuDelegate, $rootScope) {
+    $scope.variable = '';
+    $rootScope.$on('false', function(){
+        $scope.variable = 'right';
+        $scope.styleChange = {"justify-content":"flex-start"};
+    });
+    $rootScope.$on('true', function(){
+        $scope.variable = 'left';
+        $scope.styleChange = {"justify-content":"flex-end"};
+    });
+    $scope.openSideMenu = function() {
+        if ($scope.variable === 'left') {
+            $scope.shouldRightSideMenuBeEnabled = true;
+            $scope.shouldLeftSideMenuBeEnabled = false;
+            $ionicSideMenuDelegate.toggleRight();
+        } else {
+            $scope.shouldLeftSideMenuBeEnabled = true;
+            $scope.shouldRightSideMenuBeEnabled = false;
+            $ionicSideMenuDelegate.toggleLeft();
+        }
+    };
+    $scope.todos = My_service.getAll();
+    $scope.classChange = function(todo) {
+        $scope.todos = My_service.classChange(todo);
+        $scope.todos = My_service.getAll();
+    };
+})
 .controller('AllTodos', function($scope, $localStorage, My_service, $rootScope) {
     $scope.todos = My_service.getAll();
     $scope.removeTodo = function(index) {
         $scope.items = My_service.removeTodo(index);
         $scope.todos = My_service.getAll();
-        $rootScope.$broadcast('delete');
     };
     $scope.classChange = function(todo) {
         $scope.todos = My_service.classChange(todo);
         $scope.todos = My_service.getAll();
     };
-    $rootScope.$on('delete', function(){
-        $scope.todos = My_service.getAll();
-    });
 })
 .controller('CreationCtrl', function($scope, $localStorage, My_service, $cordovaCamera, $rootScope,  $cordovaFile, $cordovaImagePicker, $cordovaFile, $stateParams) {
     $scope.newTodo = {};
@@ -76,24 +99,20 @@ angular.module('starter.controllers',['ngCordova', 'ngStorage'])
         };
         $scope.newTodo.image = $scope.picture;
         $scope.todos = My_service.addTodo(todo, $scope.picture);
-        $rootScope.$emit('delete');
-        $rootScope.$broadcast('delete');
         $scope.newTodo = {};
     };
-    $scope.changeTodo = function (todo) {
-        $scope.todos = My_service.changeTodo(todo);
-        $rootScope.$emit('delete');
+    $scope.rewriteTodo = function (todo) {
+        $scope.todos = My_service.rewriteTodo(todo, $scope.picture);
     };
 })
 .controller('SettingsCtrl', function($scope, $localStorage, $ionicSideMenuDelegate, My_service, $rootScope) {
     $scope.removeTodoAll = function() {
         $scope.todos = My_service.removeTodoAll();
-        $rootScope.$emit('delete');
-        $rootScope.$broadcast('delete');
     };
     $scope.settings = {
         side: false
     };
+    console.log($scope.settings);
     $scope.$watch('settings.side', function(newValue, oldValue, $ionicSideMenuDelegate) {
         if (newValue == true) {
             $rootScope.$broadcast('true');
@@ -102,39 +121,5 @@ angular.module('starter.controllers',['ngCordova', 'ngStorage'])
             $rootScope.$broadcast('false');
             return;
         }
-    });
-})
-.controller('SideMenuCtrl', function($scope, $localStorage, My_service, $ionicSideMenuDelegate, $rootScope) {
-    $scope.variable = '';
-    $rootScope.$on('false', function(){
-        $scope.variable = 'right';
-        $scope.styleChange = {"justify-content":"flex-start"};
-        $scope.shouldLeftSideMenuBeEnabled = true;
-        $scope.shouldRightSideMenuBeEnabled = false;
-    });
-    $rootScope.$on('true', function(){
-        $scope.variable = 'left';
-        $scope.styleChange = {"justify-content":"flex-end"};
-        $scope.shouldRightSideMenuBeEnabled = true;
-        $scope.shouldLeftSideMenuBeEnabled = false;
-      });
-    $scope.openSideMenu = function() {
-        if ($scope.variable === 'left') {
-            $scope.shouldRightSideMenuBeEnabled = true;
-            $scope.shouldLeftSideMenuBeEnabled = false;
-            $ionicSideMenuDelegate.toggleRight();
-        } else {
-            $scope.shouldLeftSideMenuBeEnabled = true;
-            $scope.shouldRightSideMenuBeEnabled = false;
-            $ionicSideMenuDelegate.toggleLeft();
-        }
-    };
-    $scope.todos = My_service.getAll();
-    $scope.classChange = function(todo) {
-        $scope.todos = My_service.classChange(todo);
-        $scope.todos = My_service.getAll();
-    };
-    $rootScope.$on('delete', function(){
-        $scope.todos = My_service.getAll();
     });
 });

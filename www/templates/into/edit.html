@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view  view-title="Edit">
   <ion-content class="creation">
     <div class="block"><div class="name_imput">Name:</div>
         <div>
@@ -18,16 +18,16 @@
         </div>
     </div>
     <hr>
-        <div class="wrapper"><p class="tasks_creation">Task(Click to change):</p><div ng-class="{'new':todo.type===1, 'in_progress':todo.type===2, 'done':todo.type===3}" ng-click="classCreationChange()" style="box-shadow: 0 0 3px black;"></div></div>
+        <div class="wrapper"><p class="tasks_creation">Task(Click to change):</p><div ng-class="{'new':todo.type===1, 'in_progress':todo.type===2, 'done':todo.type===3}" ng-click="classChange(todo)"></div></div>
     <hr>
     <div>
         <div class="buttons">
                 <div class="button_new_camera">
                     <div class="icon-center ion-camera" ng-click="takePicture()"></div>
                 </div>
-                <a class="button_new_back" nav-direction="forward" href="#/menu/tab/todos/{{todo.id}}">
-                    <div class="button_inside_another">Back</div>
-                </a>
+                <div class="button_new_save" nav-direction="forward" ng-click="rewriteTodo(todo)">
+                    <div class="button_inside_another">Edit</div>
+                </div>
                 <div class="button_new_download">
                     <div class="icon-center ion-archive" ng-click="choosePhoto()"></div>
                 </div>
@@ -39,8 +39,13 @@
             <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300">
         </div>
     </div>
-    <a class="button_new_all_todos" nav-direction="forward" href="#/menu/tab/todos">
-        <div class="button_inside">All Todos</div>
-    </a>
+    <div class="buttons">
+        <a class="button_new_back" nav-direction="forward" href="#/menu/tab/todos/{{todo.id}}">
+            <div class="button_inside_another">Back</div>
+        </a>
+        <a class="button_new_all_todos" nav-direction="forward" href="#/menu/tab/todos">
+            <div class="button_inside">All Todos</div>
+        </a>
+    </div>
   </ion-content>
 </ion-view>
