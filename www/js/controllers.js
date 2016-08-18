@@ -57,6 +57,7 @@ angular.module('starter.controllers',['ngCordova', 'ngStorage'])
         $cordovaCamera.getPicture(options).then(function(imageData) {
             $scope.imgURI = "data:image/jpeg;base64," + imageData;
             $scope.picture = $scope.imgURI;
+            $scope.imgURI = undefined;
         }, function(err) {
             console.error('err')
         });
