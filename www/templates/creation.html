@@ -37,8 +37,8 @@
             </div>
             <div>
                 <div>
-                    <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
-                    <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300">
+                    <img ng-show="imgURI" ng-src="{{imgURI}}">
+                    <img ng-show="!imgURI || navigator.connection.type != Connection.NONE" ng-src="http://placehold.it/300x300/99cccc.jpg&text=Image">
                 </div>
             </div>
     </ion-content>

@@ -71,15 +71,24 @@ angular.module('starter.services',  ['ngCordova','ngStorage'])
             sideMenu: function(value) {
                         $localStorage.side = value;
             }
+            // ,
+            // getSide: function() {
+            //             return $localStorage.new;
+            // },
+            // sidemenuSide: function(side) {
+            //             $localStorage.newSide = side;
+            //             if ($localStorage.newSide.mySide == true) {
+            //                 $localStorage.new = 'left';
+            //                 $localStorage.new = 'right';
+            //             } else if ($localStorage.newSide == false) {
+            //                 $localStorage.new = 'right';
+            //                 $localStorage.new = 'left';
+            //             }
+            // }
+    };
+})
+.factory('My_factory', function(){
+    return {
+        side: false
     };
 });
-// .factory('Side_service', function($localStorage, $cordovaCamera, $ionicSideMenuDelegate) {
-//     return {
-//             getSide: function() {
-//                         return $localStorage.newSide;
-//             },
-//             sidemenuSide: function(side) {
-//                         $localStorage.newSide = side;
-//             }
-//     };
-// });

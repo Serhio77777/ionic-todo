@@ -8,17 +8,17 @@
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngStorage'])
 
 .run(function($ionicPlatform, $cordovaSplashscreen, $cordovaNetwork, $localStorage) {
-    document.addEventListener("deviceready", function () {
-        var type = $cordovaNetwork.getNetwork()
-        var isOnline = $cordovaNetwork.isOnline()
-        var isOffline = $cordovaNetwork.isOffline()
-        $rootScope.$on('$cordovaNetwork:online', function(event, networkState){
-            var onlineState = networkState;
-        })
-        $rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
-            var offlineState = networkState;
-        })
-    }, false);
+    // document.addEventListener('deviceready', function () {
+    //     var type = $cordovaNetwork.getNetwork(),
+    //         isOnline = $cordovaNetwork.isOnline(),
+    //         isOffline = $cordovaNetwork.isOffline();
+    //     $rootScope.$on('$cordovaNetwork:online', function(event, networkState) {
+    //         var onlineState = networkState;
+    //     })
+    //     $rootScope.$on('$cordovaNetwork:offline', function(event, networkState) {
+    //         var offlineState = networkState;
+    //     })
+    // }, false);
     if (!$localStorage.newTodosSave) {
         $localStorage.newTodosSave = [];
     }
@@ -37,6 +37,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
+    }
+    if (window.Connection) {
+        if (navigator.connection.type == Connection.NONE) {
+            alert('Where is no Internet!!');
+        }
     }
   });
 })

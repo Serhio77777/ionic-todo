@@ -1,20 +1,26 @@
 angular.module('starter.controllers',['ngCordova', 'ngStorage'])
-.controller('SideMenuCtrl', function($scope, $localStorage, My_service, $ionicSideMenuDelegate, $rootScope) {
-    $scope.variable = '';
-    $rootScope.$on('false', function(){
-        $scope.variable = 'right';
-        $scope.styleChange = {"justify-content":"flex-start"};
-    });
-    $rootScope.$on('true', function(){
-        $scope.variable = 'left';
+.controller('SideMenuCtrl', function($scope, $localStorage, My_service, $ionicSideMenuDelegate, My_factory) {
+
+    $scope.My_factory = My_factory;
+    if (My_factory.side === true) {
         $scope.styleChange = {"justify-content":"flex-end"};
-    });
+        $scope.shouldRightSideMenuBeEnabled = true;
+        $scope.shouldLeftSideMenuBeEnabled = false;
+    } else {
+        $scope.styleChange = {"justify-content":"flex-start"};
+        $scope.shouldLeftSideMenuBeEnabled = true;
+        $scope.shouldRightSideMenuBeEnabled = false;
+    }
     $scope.openSideMenu = function() {
-        if ($scope.variable === 'left') {
+        $scope.My_factory = My_factory;
+        console.log(My_factory.side);
+        if (My_factory.side === true) {
+            $scope.styleChange = {"justify-content":"flex-end"};
             $scope.shouldRightSideMenuBeEnabled = true;
             $scope.shouldLeftSideMenuBeEnabled = false;
             $ionicSideMenuDelegate.toggleRight();
         } else {
+            $scope.styleChange = {"justify-content":"flex-start"};
             $scope.shouldLeftSideMenuBeEnabled = true;
             $scope.shouldRightSideMenuBeEnabled = false;
             $ionicSideMenuDelegate.toggleLeft();
@@ -106,21 +112,9 @@ angular.module('starter.controllers',['ngCordova', 'ngStorage'])
         $scope.todos = My_service.rewriteTodo(todo, $scope.picture);
     };
 })
-.controller('SettingsCtrl', function($scope, $localStorage, $ionicSideMenuDelegate, My_service, $rootScope) {
+.controller('SettingsCtrl', function($scope, $localStorage, $ionicSideMenuDelegate, My_service, My_factory) {
+    $scope.My_factory = My_factory;
     $scope.removeTodoAll = function() {
         $scope.todos = My_service.removeTodoAll();
     };
-    $scope.settings = {
-        side: false
-    };
-    console.log($scope.settings);
-    $scope.$watch('settings.side', function(newValue, oldValue, $ionicSideMenuDelegate) {
-        if (newValue == true) {
-            $rootScope.$broadcast('true');
-            return;
-        } else {
-            $rootScope.$broadcast('false');
-            return;
-        }
-    });
 });

@@ -1,5 +1,23 @@
 <ion-view  view-title="Edit">
   <ion-content class="creation">
+    <div class="buttons">
+      <div class="button_new_camera">
+        <div class="icon-center ion-camera" ng-click="takePicture()"></div>
+      </div>
+      <div class="button_new_save" nav-direction="forward" ng-click="rewriteTodo(todo)">
+        <div class="button_inside_another">Edit</div>
+      </div>
+      <div class="button_new_download">
+        <div class="icon-center ion-archive" ng-click="choosePhoto()"></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <img ng-show="imgURI" ng-src="{{imgURI}}">
+      <img ng-show="!imgURI || navigator.connection.type != Connection.NONE" ng-src="http://placehold.it/300x300/99cccc.jpg&text=Image">
+    </div>
+  </div>
     <div class="block"><div class="name_imput">Name:</div>
         <div>
             <input ng-model="todo.name":"{{todo.name}}" placeholder="Type Name" required></input>
@@ -21,24 +39,6 @@
         <div class="wrapper"><p class="tasks_creation">Task(Click to change):</p><div ng-class="{'new':todo.type===1, 'in_progress':todo.type===2, 'done':todo.type===3}" ng-click="classChange(todo)"></div></div>
     <hr>
     <div>
-        <div class="buttons">
-                <div class="button_new_camera">
-                    <div class="icon-center ion-camera" ng-click="takePicture()"></div>
-                </div>
-                <div class="button_new_save" nav-direction="forward" ng-click="rewriteTodo(todo)">
-                    <div class="button_inside_another">Edit</div>
-                </div>
-                <div class="button_new_download">
-                    <div class="icon-center ion-archive" ng-click="choosePhoto()"></div>
-                </div>
-        </div>
-    </div>
-    <div>
-        <div>
-            <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
-            <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300">
-        </div>
-    </div>
     <div class="buttons">
         <a class="button_new_back" nav-direction="forward" href="#/menu/tab/todos/{{todo.id}}">
             <div class="button_inside_another">Back</div>
