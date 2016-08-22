@@ -63,28 +63,7 @@ angular.module('starter.services',  ['ngCordova','ngStorage'])
                           case 3: todo.type = 1;
                             break;
                         }
-            },
-            getSide: function() {
-                        console.log($localStorage.side);
-                        return $localStorage.side;
-            },
-            sideMenu: function(value) {
-                        $localStorage.side = value;
             }
-            // ,
-            // getSide: function() {
-            //             return $localStorage.new;
-            // },
-            // sidemenuSide: function(side) {
-            //             $localStorage.newSide = side;
-            //             if ($localStorage.newSide.mySide == true) {
-            //                 $localStorage.new = 'left';
-            //                 $localStorage.new = 'right';
-            //             } else if ($localStorage.newSide == false) {
-            //                 $localStorage.new = 'right';
-            //                 $localStorage.new = 'left';
-            //             }
-            // }
     };
 })
 .factory('My_factory', function(){

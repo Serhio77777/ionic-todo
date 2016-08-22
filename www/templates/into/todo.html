@@ -1,5 +1,5 @@
 <ion-view view-title="Todo">
-    <ion-content  class="todo_content">
+    <ion-content  ng-class="(settings.side===true) ? 'todo_content' : 'todo_content_another'">
         <div class="todo">
             <div class="wrapper">
                 <h5><span class="todo_name"><div class="todo_name_little">Name:</div> {{todo.name}}</span></h5>
@@ -27,16 +27,16 @@
             <img ng-show="todo.image" ng-src="{{todo.image}}">
         </div>
         <div class="todo_buttons">
-          <div class="todo_button">
-            <a class="button_new_back_todo" nav-direction="forward" href="#/menu/tab/todos">
-                <div class="button_inside_todo">Back</div>
-            </a>
-          </div>
-          <div class="todo_button">
-              <a class="button_new_edit" href="#/menu/tab/todos/{{todo.id}}/edit">
-                  <div class="button_inside_todo">Edit</div></button>
-              </a>
-          </div>
+            <div class="todo_button">
+                <a class="button_new_back_todo" nav-direction="forward" href="#/menu/tab/todos">
+                    <div class="button_inside_todo">Back</div>
+                </a>
+            </div>
+            <div class="todo_button">
+                <a class="button_new_edit" href="#/menu/tab/todos/{{todo.id}}/edit">
+                    <div class="button_inside_todo">Edit</div></button>
+                </a>
+            </div>
         </div>
     </ion-content>
 </ion-view>

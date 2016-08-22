@@ -1,30 +1,10 @@
 angular.module('starter.controllers',['ngCordova', 'ngStorage'])
 .controller('SideMenuCtrl', function($scope, $localStorage, My_service, $ionicSideMenuDelegate, My_factory) {
-
-    $scope.My_factory = My_factory;
-    if (My_factory.side === true) {
-        $scope.styleChange = {"justify-content":"flex-end"};
-        $scope.shouldRightSideMenuBeEnabled = true;
-        $scope.shouldLeftSideMenuBeEnabled = false;
-    } else {
-        $scope.styleChange = {"justify-content":"flex-start"};
-        $scope.shouldLeftSideMenuBeEnabled = true;
-        $scope.shouldRightSideMenuBeEnabled = false;
+    $scope.settings = {
+        side: false
     }
-    $scope.openSideMenu = function() {
-        $scope.My_factory = My_factory;
-        console.log(My_factory.side);
-        if (My_factory.side === true) {
-            $scope.styleChange = {"justify-content":"flex-end"};
-            $scope.shouldRightSideMenuBeEnabled = true;
-            $scope.shouldLeftSideMenuBeEnabled = false;
-            $ionicSideMenuDelegate.toggleRight();
-        } else {
-            $scope.styleChange = {"justify-content":"flex-start"};
-            $scope.shouldLeftSideMenuBeEnabled = true;
-            $scope.shouldRightSideMenuBeEnabled = false;
-            $ionicSideMenuDelegate.toggleLeft();
-        }
+    $scope.openSideMenu = function(side) {
+        $ionicSideMenuDelegate['toggle' + (side ? 'Right' : 'Left')]();
     };
     $scope.todos = My_service.getAll();
     $scope.classChange = function(todo) {

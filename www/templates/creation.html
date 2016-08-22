@@ -1,5 +1,6 @@
 <ion-view view-title="Creation">
     <ion-content class="creation">
+      <form>
             <div class="block"><div class="name_imput">Name:</div>
                 <div>
                     <input ng-model="newTodo.name":"{{todo.name}}" placeholder="Type Name" required></input>
@@ -25,11 +26,9 @@
                     <div class="button_new_camera">
                         <div class="icon-center ion-camera" ng-click="takePicture()"></div>
                     </div>
-                    <div class="save">
                         <a href="#/menu/tab/todos" class="button_new_save" ng-click="addTodo(newTodo)">
                             <div class="button_inside_another">Save</div>
                         </a>
-                    </div>
                     <div class="button_new_download">
                         <div class="icon-center ion-archive" ng-click="choosePhoto()"></div>
                     </div>
@@ -37,9 +36,10 @@
             </div>
             <div>
                 <div>
-                    <img ng-show="imgURI" ng-src="{{imgURI}}">
-                    <img ng-show="!imgURI || navigator.connection.type != Connection.NONE" ng-src="http://placehold.it/300x300/99cccc.jpg&text=Image">
+                    <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
+                    <img ng-show="!imgURI || navigator.connection.type != Connection.NONE" ng-src="http://placehold.it/290x290/99cccc.jpg&text=Image">
                 </div>
             </div>
+        </form>
     </ion-content>
 </ion-view>

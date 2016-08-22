@@ -5,7 +5,7 @@ navigation history that also transitions its views in and out.
 -->
 <ion-view>
 
-<ion-tabs class="tabs-icon-top tabs-color-active-energized tabs-royal">
+<ion-tabs ng-class="(settings.side===true) ? 'another_tabs' : 'my_tabs'">
     <ion-tab title="All Todos" icon-off="ion-ios-film-outline" icon-on="ion-ios-film" href="#/menu/tab/todos">
         <ion-nav-view name="todos-tab" class="center">
         </ion-nav-view>
