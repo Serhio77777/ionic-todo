@@ -1,8 +1,8 @@
 <ion-view ng-class="(settings.side===true) ? 'all_todos' : 'all_todos_another'" view-title="All Todos">
     <ion-content>
         <ion-list  ng-class="(settings.side===true) ? 'another_class' : 'my_class'">
-            <ion-item ng-repeat="todo in todos track by $index" type="item-text-wrap" href="#/menu/tab/todos/{{todo.id}}">
-                <div class="wrapper">
+            <ion-item ng-repeat="todo in todos track by $index" type="item-text-wrap">
+                <div class="wrapper" ui-sref="menu.tab.todo({todoId: todo.id})">
                     <h5>
                         <div class="todos_name_little">Name:</div><span class="todos_name">{{todo.name}}</span>
                         <div  ng-show="todo.description"  class="place">
@@ -12,11 +12,11 @@
                 </div>
                 <div class="wrapper">
                     <h1 class="tasks" ng-click="classChange(todo)">Task:</h1>
-                    <a nav-direction="forward" href="#/menu/tab/todos"><div ng-class="{'new':todo.type===1, 'in_progress':todo.type===2, 'done':todo.type===3}" ng-click="classChange(todo)"></div>
+                    <a nav-direction="forward"><div ng-class="{'new':todo.type===1, 'in_progress':todo.type===2, 'done':todo.type===3}" ng-click="classChange(todo)"></div>
                     </a>
                 </div>
                 <div class="delete">
-                    <a nav-direction="forward" href="#/menu/tab/todos"><div class="button_new_delete" ng-click="removeTodo($index)"><div  class="icon-right ion-android-close"></div></div>
+                    <a nav-direction="forward"><div class="button_new_delete" ng-click="removeTodo($index)"><div  class="icon-right ion-android-close"></div></div>
                     </a>
                 </div>
             </ion-item>

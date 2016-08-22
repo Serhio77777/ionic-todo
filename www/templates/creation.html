@@ -26,7 +26,7 @@
                     <div class="button_new_camera">
                         <div class="icon-center ion-camera" ng-click="takePicture()"></div>
                     </div>
-                        <a href="#/menu/tab/todos" class="button_new_save" ng-click="addTodo(newTodo)">
+                        <a class="button_new_save" ng-click="addTodo(newTodo)">
                             <div class="button_inside_another">Save</div>
                         </a>
                     <div class="button_new_download">
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div>
-                <div>
+                <div class="image_padding">
                     <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
                     <img ng-show="!imgURI || navigator.connection.type != Connection.NONE" ng-src="http://placehold.it/290x290/99cccc.jpg&text=Image">
                 </div>

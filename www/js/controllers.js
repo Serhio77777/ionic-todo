@@ -1,5 +1,5 @@
 angular.module('starter.controllers',['ngCordova', 'ngStorage'])
-.controller('SideMenuCtrl', function($scope, $localStorage, My_service, $ionicSideMenuDelegate, My_factory) {
+.controller('SideMenuCtrl', function($scope, $localStorage, My_service, $ionicSideMenuDelegate) {
     $scope.settings = {
         side: false
     }
@@ -8,24 +8,18 @@ angular.module('starter.controllers',['ngCordova', 'ngStorage'])
     };
     $scope.todos = My_service.getAll();
     $scope.classChange = function(todo) {
-        $scope.todos = My_service.classChange(todo);
+        My_service.classChange(todo);
         $scope.todos = My_service.getAll();
     };
-})
-.controller('AllTodos', function($scope, $localStorage, My_service, $rootScope) {
-    $scope.todos = My_service.getAll();
+    $scope.removeTodoAll = function() {
+      $scope.todos = My_service.removeTodoAll();
+    };
     $scope.removeTodo = function(index) {
-        $scope.items = My_service.removeTodo(index);
-        $scope.todos = My_service.getAll();
-    };
-    $scope.classChange = function(todo) {
-        $scope.todos = My_service.classChange(todo);
-        $scope.todos = My_service.getAll();
+        $scope.todos = My_service.removeTodo(index);
     };
 })
-.controller('CreationCtrl', function($scope, $localStorage, My_service, $cordovaCamera, $rootScope,  $cordovaFile, $cordovaImagePicker, $cordovaFile, $stateParams) {
+.controller('CreationCtrl', function($scope, $state, $localStorage, My_service, $cordovaCamera, $rootScope,  $cordovaFile, $cordovaImagePicker, $cordovaFile, $stateParams) {
     $scope.newTodo = {};
-    $scope.todos = My_service.getAll();
     $scope.todo = My_service.get($stateParams.todoId);
     $scope.takePicture = function() {
         var options = {
@@ -43,7 +37,6 @@ angular.module('starter.controllers',['ngCordova', 'ngStorage'])
         $cordovaCamera.getPicture(options).then(function(imageData) {
             $scope.imgURI = "data:image/jpeg;base64," + imageData;
             $scope.picture = $scope.imgURI;
-            $scope.imgURI = undefined;
         }, function(err) {
             console.error('err')
         });
@@ -84,17 +77,19 @@ angular.module('starter.controllers',['ngCordova', 'ngStorage'])
         if (!todo) {
             return;
         };
+        if (!todo.name) {
+            alert('Error: Enter name!');
+            return;
+        }
+        if (!todo.date) {
+            alert('Error: Enter date!');
+            return;
+        }
+        $state.go('menu.tab.todos');
         $scope.newTodo.image = $scope.picture;
-        $scope.todos = My_service.addTodo(todo, $scope.picture);
-        $scope.newTodo = {};
+        My_service.addTodo(todo, $scope.picture);
     };
     $scope.rewriteTodo = function (todo) {
         $scope.todos = My_service.rewriteTodo(todo, $scope.picture);
-    };
-})
-.controller('SettingsCtrl', function($scope, $localStorage, $ionicSideMenuDelegate, My_service, My_factory) {
-    $scope.My_factory = My_factory;
-    $scope.removeTodoAll = function() {
-        $scope.todos = My_service.removeTodoAll();
     };
 });

@@ -70,8 +70,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         url: '/todos',
         views: {
             'todos-tab': {
-                templateUrl: 'templates/todos.html',
-                controller: 'AllTodos'
+                templateUrl: 'templates/todos.html'
             }
         }
     })
@@ -109,7 +108,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         views: {
             'settings-tab': {
                 templateUrl: 'templates/settings.html',
-                controller: 'SettingsCtrl'
             }
         }
     });

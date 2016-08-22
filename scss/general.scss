@@ -44,10 +44,10 @@
 .all_todos {
     background: #4169E1;
     margin-top: 20px;
-    .all_todos_another {
-        background: #303030;
-        margin-top: 20px;
-    }
+}
+.all_todos_another {
+  background: #303030;
+  margin-top: 20px;
 }
 .todos_name {
   font-size: 15px;
@@ -181,7 +181,8 @@ input {
     background-color: #DCDCDC;
 }
 .image_padding {
-    margin: 10px 5px 0 5px;
+    margin: 10px 5px 10px 5px;
+    // padding-bottom: 20px;
 }
 .add {
     background-color: #DCDCDC;
@@ -529,7 +530,7 @@ input {
 .button_sidemenu {
     position: relative;
     display: inline-block;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: 700;
     color: #FFFFFF;
     text-decoration: none;
@@ -553,8 +554,8 @@ input {
         color: white;
         border-bottom-color: white;
         &.tab-item-active {
-            color: blue;
-            border-bottom-color: blue;
+            color: #0288D1;
+            border-bottom-color: #0288D1;
         }
     }
     span.tab-title.ng-binding {

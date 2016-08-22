@@ -15,14 +15,6 @@ angular.module('starter.services',  ['ngCordova','ngStorage'])
                             min = $localStorage.newTodosSave.length;
                         }
                         todo.id = Math.floor(Math.random() * (max - min)) + min;
-                        if (!todo.name ) {
-                            alert('Error: Enter name!');
-                            return;
-                        }
-                        if (!todo.date) {
-                            alert('Error: Enter date!');
-                            return;
-                        }
                         todo.image = myImage;
                         if ($localStorage.newTodosSave === undefined) {
                             $localStorage.newTodosSave = [];
@@ -63,11 +55,7 @@ angular.module('starter.services',  ['ngCordova','ngStorage'])
                           case 3: todo.type = 1;
                             break;
                         }
+                        return todo;
             }
-    };
-})
-.factory('My_factory', function(){
-    return {
-        side: false
     };
 });
