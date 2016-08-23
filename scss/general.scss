@@ -181,7 +181,7 @@ input {
     background-color: #DCDCDC;
 }
 .image_padding {
-    margin: 10px 5px 10px 5px;
+    margin: 10px 5px 20px 5px;
     // padding-bottom: 20px;
 }
 .add {
@@ -583,15 +583,6 @@ input {
     }
 }
 
-.another_class {
-    background-color: #454545;
-    .item-content {
-        background-color: #1976D2;
-        &.activated {
-            background-color: #0000AB;
-        }
-    }
-}
 .my_class {
     background-color: #454545;
     .item {
@@ -604,4 +595,17 @@ input {
             background-color: #050505;
         }
     }
+}
+.another_class {
+  background-color: #454545;
+  .item {
+      background-color: #0288D1;
+      border-color: #303F9F;
+  }
+  .item-content {
+    background-color: #1976D2;
+    &.activated {
+      background-color: #0000AB;
+    }
+  }
 }
