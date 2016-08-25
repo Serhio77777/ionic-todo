@@ -1,0 +1,54 @@
+<ion-view  view-title="Editing">
+    <ion-content class="creation">
+        <div class="buttons">
+            <a class="button-new-back" nav-direction="forward" ui-sref="menu.tab.todo({todoIndex: selectedIndex})">
+                <div class="button-inside-another">Back</div>
+            </a>
+            <a class="button-new-all-todos" nav-direction="forward" href="#/menu/tab/todos">
+                <div class="button-inside">All Todos</div>
+            </a>
+        </div>
+        <hr>
+        <form>
+            <div class="block"><div class="name-imput">Name:</div>
+                <div>
+                    <input ng-model="todo.name":"{{todo.name}}" placeholder="Type Name" required></input>
+                </div>
+            </div>
+            <hr>
+            <div  class="block"><div class="name-imput">Description:</div>
+                <div>
+                    <input ng-model="todo.description":"{{todo.description}}" placeholder="Type Description" ></input>
+                </div>
+            </div>
+            <hr>
+            <div  class="block"><div class="name-imput">Date:</div>
+                <div>
+                    <input type="date" min="1940-01-01" ng-model="todo.date":"{{todo.date}}" required></input>
+                </div>
+            </div>
+            <hr>
+                <div class="wrapper">
+                    <p class="tasks-creation">Task(Click):</p>
+                    <div ng-class="{'new':todo.type===1, 'in-progress':todo.type===2, 'done':todo.type===3}" ng-click="classChange(todo)"></div>
+                </div>
+            <hr>
+            <div class="buttons">
+                <div class="button-new-camera">
+                    <div class="icon-center ion-camera" ng-click="takePicture()"></div>
+                </div>
+                <a ui-sref="menu.tab.todo({todoIndex: selectedIndex})" class="button-new-save" nav-direction="forward" ng-click="rewriteTodo(todo)">
+                    <div class="button-inside-another">Edit</div>
+                </a>
+                <div class="button-new-download">
+                    <div class="icon-center ion-archive" ng-click="choosePhoto()"></div>
+                </div>
+            </div>
+            <div class="image-padding">
+                <img ng-show="todo.image" ng-src="{{todo.image}}">
+                <img ng-show="picture || !todo-image" ng-src="{{picture}}">
+                <img ng-show="!todo.image || navigator.connection.type != Connection.NONE" ng-src="http://placehold.it/290x290/99cccc.jpg&text=Image">
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

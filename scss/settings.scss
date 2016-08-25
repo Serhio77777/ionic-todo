@@ -1,0 +1,41 @@
+.settings {
+    background: $white-blue;
+}
+.settings-another {
+    background: $little-dark-grey;
+}
+
+.switch {
+    padding: 30px;
+    text-align: center;
+    background: $white-blue;
+}
+.switch-another {
+    padding: 30px;
+    text-align: center;
+    background: $little-dark-grey;
+    border-bottom-color: $little-dark-grey;
+    border-top-color: $little-dark-grey;
+}
+.settings-title-block {
+    padding-top: 30px;
+}
+.settings-title {
+    padding-top: 30px;
+    color: black;
+    text-align: center;
+    font-weight: 800;
+    font-size: 30px;
+    font-family: $gotika;
+}
+.settings-title-another {
+    padding-top: 30px;
+    color: $white;
+    text-align: center;
+    font-weight: 800;
+    font-size: 30px;
+    font-family: $gotika;
+}
+.center {
+    text-align: center;
+}

@@ -1,0 +1,13 @@
+<ion-view view-title="Settings">
+    <ion-content ng-class="(settings.side===true) ? 'settings' : 'settings-another'">
+            <div class="settings-title-block">
+                <h2 ng-class="(settings.side===true) ? 'settings-title' : 'settings-title-another'">Choose Side</h2>
+            </div>
+                <ion-toggle ng-class="(settings.side===true) ? 'switch' : 'switch-another'" toggle-class="toggle-positive" ng-model="settings.side"></ion-toggle>
+            <div class="delete-button">
+                <div class="button-new-delete-all">
+                    <div class="button-inside" ng-click="removeTodoAll()">Delete All</div>
+                </div>
+            </div>
+    </ion-content>
+</ion-view>

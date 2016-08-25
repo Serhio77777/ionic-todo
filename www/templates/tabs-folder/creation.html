@@ -1,43 +1,46 @@
 <ion-view view-title="Creation">
     <ion-content class="creation">
-      <form>
-            <div class="block"><div class="name_imput">Name:</div>
+        <form>
+            <div class="block"><div class="name-imput">Name:</div>
                 <div>
                     <input ng-model="newTodo.name":"{{todo.name}}" placeholder="Type Name" required></input>
                 </div>
             </div>
             <hr>
-            <div  class="block"><div class="name_imput">Description:</div>
+            <div  class="block"><div class="name-imput">Description:</div>
                 <div>
                     <input ng-model="newTodo.description":"{{todo.description}}" placeholder="Type Description" ></input>
                 </div>
             </div>
             <hr>
-            <div  class="block"><div class="name_imput">Date:</div>
+            <div  class="block"><div class="name-imput">Date:</div>
                 <div>
                     <input type="date" min="1940-01-01" ng-model="newTodo.date":"{{todo.date}}" required></input>
                 </div>
             </div>
             <hr>
-                <div class="wrapper"><p class="tasks_creation">Task(Click):</p><div ng-class="{'new':newTodo.type===1, 'in_progress':newTodo.type===2, 'done':newTodo.type===3}" ng-click="classCreationChange()"></div></div>
+                <div class="wrapper">
+                    <p class="tasks-creation">Task(Click):</p>
+                    <div ng-class="{'new':newTodo.type===1, 'in-progress':newTodo.type===2, 'done':newTodo.type===3}" ng-click="classCreationChange()"></div>
+                </div>
             <hr>
             <div>
                 <div class="buttons">
-                    <div class="button_new_camera">
+                    <div class="button-new-camera">
                         <div class="icon-center ion-camera" ng-click="takePicture()"></div>
                     </div>
-                        <a class="button_new_save" ng-click="addTodo(newTodo)">
-                            <div class="button_inside_another">Save</div>
-                        </a>
-                    <div class="button_new_download">
+                    <a class="button-new-save" ng-click="addTodo(newTodo)">
+                        <div class="button-inside-another">Save</div>
+                    </a>
+                    <div class="button-new-download">
                         <div class="icon-center ion-archive" ng-click="choosePhoto()"></div>
                     </div>
                 </div>
             </div>
             <div>
-                <div class="image_padding">
-                    <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
-                    <img ng-show="!imgURI || navigator.connection.type != Connection.NONE" ng-src="http://placehold.it/290x290/99cccc.jpg&text=Image">
+                <div class="image-padding">
+                    <img ng-show="picture" ng-src="{{picture}}">
+                    <img ng-show="!picture && navigator.connection.type != Connection.NONE" ng-src="http://placehold.it/290x290/99cccc.jpg&text=Image">
                 </div>
             </div>
         </form>

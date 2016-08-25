@@ -1,0 +1,79 @@
+.all-todos {
+    margin-top: 20px;
+    background: $all-todos;
+}
+.all-todos-another {
+    margin-top: 20px;
+    background: $all-todos-another;
+}
+.todos-name {
+    color: $yellow;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: $gotika;
+}
+.todos-description {
+    color: white;
+    font-weight: 700;
+    font: $description;
+}
+.todos-description-another {
+    color: black;
+    font-weight: 700;
+    font: $description;
+}
+.todo-content {
+    margin-top: 21px;
+    background: $indigo;
+}
+.todo-content-another {
+    margin-top: 21px;
+    background: $dark-grey;
+}
+.todo-name {
+    color: $marron;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: $gotika;
+}
+.todo-name-description {
+    color: $purple;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: $gotika;
+}
+.todo-name-date {
+    color: $true-red;
+    font-size: 20px;
+    font-weight: 700;
+}
+.todo-descrition {
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
+}
+.todo-name-little {
+    float: left;
+    width: 150px;
+    text-align: left;
+}
+.tasks-todo {
+    padding-top: 10px;
+    color: $indigo;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 900;
+    font-family: $gotika;
+}
+.todo {
+    background-color: $white-blue;
+}
+.todo-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: $little-white-blue;
+}

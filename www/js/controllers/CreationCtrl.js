@@ -1,26 +1,8 @@
-angular.module('starter.controllers',['ngCordova', 'ngStorage'])
-.controller('SideMenuCtrl', function($scope, $localStorage, My_service, $ionicSideMenuDelegate) {
-    $scope.settings = {
-        side: false
-    }
-    $scope.openSideMenu = function(side) {
-        $ionicSideMenuDelegate['toggle' + (side ? 'Right' : 'Left')]();
-    };
-    $scope.todos = My_service.getAll();
-    $scope.classChange = function(todo) {
-        My_service.classChange(todo);
-        $scope.todos = My_service.getAll();
-    };
-    $scope.removeTodoAll = function() {
-      $scope.todos = My_service.removeTodoAll();
-    };
-    $scope.removeTodo = function(index) {
-        $scope.todos = My_service.removeTodo(index);
-    };
-})
-.controller('CreationCtrl', function($scope, $state, $localStorage, My_service, $cordovaCamera, $rootScope,  $cordovaFile, $cordovaImagePicker, $cordovaFile, $stateParams) {
+angular.module('starter.CreationCtrl',['ngCordova', 'ngStorage'])
+.controller('CreationCtrl', function($scope, $state, $localStorage, My_service, $cordovaCamera,  $cordovaFile, $cordovaImagePicker, $cordovaFile, $stateParams) {
     $scope.newTodo = {};
-    $scope.todo = My_service.get($stateParams.todoId);
+    $scope.todo = My_service.get($stateParams.todoIndex);
+    $scope.selectedIndex = $stateParams.todoIndex;
     $scope.takePicture = function() {
         var options = {
             quality : 75,
@@ -66,13 +48,7 @@ angular.module('starter.controllers',['ngCordova', 'ngStorage'])
         $scope.newTodo.type = 1;
     };
     $scope.classCreationChange = function () {
-        if ($scope.newTodo.type === 1) {
-            $scope.newTodo.type = 2;
-        } else if ($scope.newTodo.type === 2) {
-            $scope.newTodo.type = 3;
-        } else if ($scope.newTodo.type === 3) {
-            $scope.newTodo.type = 1;
-        }
+        $scope.newTodo = My_service.classChange($scope.newTodo);
     }
     $scope.addTodo = function (todo) {
         if (!todo) {
@@ -87,10 +63,14 @@ angular.module('starter.controllers',['ngCordova', 'ngStorage'])
             return;
         }
         $state.go('menu.tab.todos');
-        $scope.newTodo.image = $scope.picture;
         My_service.addTodo(todo, $scope.picture);
+        $scope.picture = undefined;
+        $scope.newTodo = {
+            type:1
+        };
     };
     $scope.rewriteTodo = function (todo) {
         $scope.todos = My_service.rewriteTodo(todo, $scope.picture);
+        $scope.picture = undefined;
     };
 });

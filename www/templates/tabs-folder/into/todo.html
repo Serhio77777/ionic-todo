@@ -1,0 +1,50 @@
+<ion-view view-title="Todo">
+    <ion-content  ng-class="(settings.side===true) ? 'todo-content' : 'todo-content-another'">
+        <div class="todo">
+            <div class="wrapper">
+                <h5>
+                    <span class="todo-name"><div class="todo-name-little">Name:</div> {{todo.name}}</span>
+                </h5>
+            </div>
+        </div>
+        <div class="todo">
+            <div class="wrapper" ng-show="todo.description">
+                <h5>
+                    <div>
+                        <span class="todo-name-description"><div class="todo-name-little">Discription:</div> {{todo.description}}</span>
+                    </div>
+                </h5>
+            </div>
+        </div>
+        <div class="todo">
+            <div class="wrapper">
+                <h5>
+                    <div>
+                        <span class="todo-name-date"><div class="todo-name-little">Date:</div>{{todo.date | date: 'MM-dd-yyyy'}}</span>
+                    </div>
+                </h5>
+            </div>
+        </div>
+        <div class="todo">
+            <div class="wrapper">
+                <p class="tasks-todo">Tasks(Click):</p>
+                <div  ng-class="{'new':todo.type===1, 'in-progress':todo.type===2, 'done':todo.type===3}" ng-click="classChange(todo)"></div>
+            </div>
+        </div>
+        <div class="todo">
+            <img ng-show="todo.image" ng-src="{{todo.image}}">
+        </div>
+        <div class="todo-buttons">
+            <div class="todo-button">
+                <a class="button-new-back-todo" nav-direction="forward" href="#/menu/tab/todos">
+                    <div class="button-inside-todo">Back</div>
+                </a>
+            </div>
+            <div class="todo-button">
+                <a class="button-new-edit" ui-sref="menu.tab.todo-editing({todoIndex: selectedIndex})">
+                    <div class="button-inside-todo">Edit</div>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

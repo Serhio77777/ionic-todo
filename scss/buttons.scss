@@ -1,0 +1,293 @@
+.new {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 30px;
+    font-size: 90%;
+    font-weight: 700;
+    padding: 20px 20px 20px 20px;
+    outline: none;
+    border-radius: 30px;
+    background: linear-gradient($white-green, $green);
+    box-shadow: 0 1px rgba(0, 0, 0, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5), 0 0 1px 1px rgba(0, 0, 0, 0.2);
+    &:active {
+        top: 1px;
+        background: $dark-green;
+        box-shadow: 0 0 1px black inset, 0 2px 3px black inset, 0 1px 1px black;
+    }
+}
+.in-progress {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 30px;
+    font-size: 90%;
+    font-weight: 700;
+    padding: 20px 20px 20px 20px;
+    outline: none;
+    border-radius: 30px;
+    background: linear-gradient($light-yellow, $yellow);
+    box-shadow: 0 1px rgba(0, 0, 0, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5), 0 0 1px 1px rgba(0, 0, 0, 0.2);
+    &:active {
+        top: 1px;
+        background: $amber;
+        box-shadow: 0 0 1px black inset, 0 2px 3px black inset, 0 1px 1px black;
+    }
+}
+.done {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 30px;
+    font-size: 90%;
+    font-weight: 700;
+    padding: 20px 20px 20px 20px;
+    outline: none;
+    border-radius: 30px;
+    background: linear-gradient($light-red, $red);
+    box-shadow: 0 1px rgba(0, 0, 0, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5), 0 0 1px 1px rgba(0, 0, 0, 0.2);
+    &:active {
+        top: 1px;
+        background: $red;
+        box-shadow: 0 0 1px black inset, 0 2px 3px black inset, 0 1px 1px black;
+    }
+}
+
+.button-inside-another {
+    padding: 0 40px 0 40px;
+    font-weight: 800;
+    font-size: 20px;
+    font-family: $gotika;
+}
+.button-inside {
+    padding: 10px 20px 10px 20px;
+    font-weight: 800;
+    font-size: 20px;
+    font-family: $gotika;
+}
+.button-inside-todo {
+    padding: 0 10px 0 10px;
+    font-weight: 800;
+    font-size: 20px;
+    font-family: $gotika;
+}
+.button-new-back-todo {
+    position: relative;
+    display: inline-block;
+    font-size: 90%;
+    font-weight: 700;
+    color: $white;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px black;
+    padding: 20px 20px 20px 20px;
+    outline: none;
+    border-radius: 15px;
+    background: linear-gradient($light-red, $red);
+    box-shadow: 0 1px rgba(0, 0, 0, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5), 0 0 1px 1px rgba(0, 0, 0, 0.2);
+    &:hover:not(:active) {
+        background: $red;
+    }
+    &:active {
+        top: 1px;
+        background: $red;
+        box-shadow: 0 0 1px black inset, 0 2px 3px black inset, 0 1px 1px black;
+    }
+}
+.button-new-edit {
+    position: relative;
+    display: inline-block;
+    font-size: 90%;
+    font-weight: 700;
+    color: $white;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px black;
+    padding: 20px 20px 20px 20px;
+    outline: none;
+    border-radius: 15px;
+    background: linear-gradient($light-green, $green);
+    box-shadow: 0 1px rgba(0, 0, 0, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5), 0 0 1px 1px rgba(0, 0, 0, 0.2);
+    transition: .2s ease-in-out;
+    &:hover:not(:active) {
+        background: $green;
+    }
+    &:active {
+        top: 1px;
+        background: $green;
+        box-shadow: 0 0 1px black inset, 0 2px 3px black inset, 0 1px 1px black;
+    }
+}
+.button-new-delete {
+    position: relative;
+    display: inline-block;
+    font-size: 90%;
+    font-weight: 700;
+    color: $white;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px black;
+    padding: 5px 10px 5px 10px;
+    margin-right: 5px;
+    outline: none;
+    font-size: 30px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 20px;
+    background: linear-gradient($light-red, $red);
+    box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5), 0 0 1px 1px rgba(0, 1, 6, 0.2);
+    &:hover:not(:active) {
+        background: linear-gradient($light-red, $red);
+    }
+    &:active {
+        top: 1px;
+        background: $red;
+        box-shadow: 0 0 1px black inset, 0 2px 3px black inset, 0 1px 1px black;
+    }
+}
+.button-new-delete-all {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    color: $white;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px black;
+    padding: 10px 20px 10px 20px;
+    margin-top: 20px;
+    outline: none;
+    border-radius: 25px;
+    background: linear-gradient($light-red, $red);
+    box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5), 0 0 1px 1px rgba(0, 1, 6, 0.2);
+    &:hover:not(:active) {
+        background: linear-gradient($light-red, $red);
+    }
+    &:active {
+        top: 1px;
+        background: $red;
+        box-shadow: 0 0 1px black inset, 0 2px 3px black inset, 0 1px 1px black;
+    }
+}
+
+.button-new-save {
+    position: relative;
+    display: inline-block;
+    font-weight: 900;
+    color: $white;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px black;
+    font-size: 20px;
+    padding: 13px 0 10px 0;
+    outline: none;
+    border-radius: 15px;
+    background: linear-gradient($light-red, $red);
+    box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5), 0 0 1px 1px rgba(0, 1, 6, 0.2);
+    &:hover:not(:active) {
+        background: linear-gradient($light-red, $red);
+    }
+    &:active {
+        top: 1px;
+        background: $red;
+        box-shadow: 0 0 1px black inset, 0 2px 3px black inset, 0 1px 1px black;
+    }
+}
+.button-new-back {
+    position: relative;
+    display: inline-block;
+    font-size: 90%;
+    font-weight: 700;
+    color: $white;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px black;
+    padding: 15px 3px 10px 3px;
+    margin-left: 10px;
+    outline: none;
+    border-radius: 15px;
+    background: linear-gradient($light-red, $red);
+    box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5), 0 0 1px 1px rgba(0, 1, 6, 0.2);
+    &:hover:not(:active) {
+        background: linear-gradient($light-red, $red);
+    }
+    &:active {
+        top: 1px;
+        background: $red;
+        box-shadow: 0 0 1px black inset, 0 2px 3px black inset, 0 1px 1px black;
+    }
+}
+.button-new-all-todos {
+    position: relative;
+    display: inline-block;
+    font-size: 90%;
+    font-weight: 700;
+    color: $white;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+    padding: 5px 10px 5px 10px;
+    margin-right: 10px;
+    outline: none;
+    border-radius: 15px;
+    background: linear-gradient($light-blue, $indigo);
+    box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5), 0 0 1px 1px rgba(0, 1, 6, 0.2);
+    &:hover:not(:active) {
+        background: linear-gradient($light-blue, $indigo);
+    }
+    &:active {
+        top: 1px;
+        background: $indigo;
+        box-shadow: 0 0 1px black inset, 0 2px 3px black inset, 0 1px 1px black;
+    }
+}
+.button-new-camera {
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 700;
+    color: $white;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    margin: 0 0 0 10px;
+    outline: none;
+    border-radius: 15px;
+    background: linear-gradient($light-blue, $indigo);
+    box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5), 0 0 1px 1px rgba(0, 1, 6, 0.2);
+    &:hover:not(:active) {
+        background: linear-gradient($light-blue, $indigo);
+    }
+    &:active {
+        top: 1px;
+        background: $indigo;
+        box-shadow: 0 0 1px black inset, 0 2px 3px black inset, 0 1px 1px black;
+    }
+}
+.button-new-download {
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 700;
+    color: $white;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    margin: 0 10px 0 0;
+    outline: none;
+    border-radius: 15px;
+    background: linear-gradient($light-blue, $indigo);
+    box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset, 0 3px 5px rgba(0, 1, 6, 0.5), 0 0 1px 1px rgba(0, 1, 6, 0.2);
+    &:hover:not(:active) {
+        background: linear-gradient($light-blue, $indigo);
+    }
+    &:active {
+        top: 1px;
+        background: $indigo;
+        box-shadow: 0 0 1px black inset, 0 2px 3px black inset, 0 1px 1px black;
+    }
+}
+
+.sidemenu-button {
+    position: relative;
+    display: inline-block;
+    font-size: 35px;
+    font-weight: 700;
+    color: $white;
+    text-decoration: none;
+    text-align: center;
+    padding: 0 10px 0 10px;
+    margin: 0;
+    outline: none;
+}

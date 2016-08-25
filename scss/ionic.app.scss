@@ -18,7 +18,47 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+
+$white: #FFFFFF;
+$light-grey: #DDDDDD;
+$little-light-grey: #DCDCDC;
+$grey: #454545;
+$dark-white-grey: #616161;
+$little-dark-grey: #404040;
+$dark-grey: #212121;
+$light-yellow: #FFC107;
+$yellow: #FFC107;
+$amber: #FFA000;
+$white-blue: #CFD8DC;
+$little-white-blue: #C5CAE9;
+$light-blue: #3F51B5;
+$cyan: #0288D1;
+$blue-cyan: #1976D2;
+$indigo: #303F9F;
+$dark-blue: #0000AB;
+$purple: #800080;
+$light-red: #F44336;
+$red: #D32F2F;
+$true-red: #FF0000;
+$white-green: #689F38;
+$light-green: #4CAF50;
+$green: #388E3C;
+$dark-green: #053D05;
+$marron: #5D4037;
+$light-black: #151515;
+$almost-black: #050505;
+$black: #000000;
+$gotika: 'Century Gothic', CenturyGothic, AppleGothic, serif;
+$gotika-mono: 'Century Gothic', CenturyGothic, AppleGothic, monospace;
+$description: italic 16px Georgia;
+$all-todos: #4169E1;
+$all-todos-another: #303030;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
 @import "general";
+@import "buttons";
+@import "creation";
+@import "settings";
+@import "todo";
+ // 4 файла для стилизации

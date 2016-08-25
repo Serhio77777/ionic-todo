@@ -1,5 +1,5 @@
+// index вместо id
 angular.module('starter.services',  ['ngCordova','ngStorage'])
-
 .factory('My_service', function($localStorage, $cordovaCamera, $ionicSideMenuDelegate) {
     var sidebool, max, min;
     return {
@@ -7,14 +7,6 @@ angular.module('starter.services',  ['ngCordova','ngStorage'])
                         return $localStorage.newTodosSave;
             },
             addTodo: function(todo, myImage) {
-                        if ($localStorage.newTodosSave && $localStorage.newTodosSave.length === 0) {
-                           max = 0;
-                           min = 0;
-                        } else {
-                            max = $localStorage.newTodosSave.length;
-                            min = $localStorage.newTodosSave.length;
-                        }
-                        todo.id = Math.floor(Math.random() * (max - min)) + min;
                         todo.image = myImage;
                         if ($localStorage.newTodosSave === undefined) {
                             $localStorage.newTodosSave = [];
@@ -29,17 +21,18 @@ angular.module('starter.services',  ['ngCordova','ngStorage'])
                         return $localStorage.newTodosSave;
             },
             removeTodo: function(index) {
-                        return $localStorage.newTodosSave = $localStorage.newTodosSave.filter(function(el, ind) {
+                        $localStorage.newTodosSave = $localStorage.newTodosSave.filter(function(el, ind) {
                             return index !== ind;
                         });
             },
             removeTodoAll: function() {
                         return $localStorage.newTodosSave = [];
             },
-            get: function(todoId) {
+            get: function(todoIndex) {
                         var todos = $localStorage.newTodosSave;
+                        console.log(todoIndex, parseInt(todoIndex) ,todos);
                         for (var i = 0; i < todos.length; i++) {
-                            if (todos[i].id === parseInt(todoId)) {
+                            if (i === parseInt(todoIndex)) {
                                 todos[i].date = new Date(todos[i].date);
                                 return todos[i];
                             }

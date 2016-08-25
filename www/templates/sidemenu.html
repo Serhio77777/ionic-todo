@@ -1,0 +1,54 @@
+<!-- Файл .bowerrc для чего? -->
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-header-bar ng-class="(settings.side===true) ? 'another-header' : 'header'" ng-style="{'justify-content': settings.side ? 'flex-end' : 'flex-start'}">
+              <div class="sidemenu-button">
+                  <div class="icon ion-navicon" ng-click="openSideMenu(settings.side)"></div>
+              </div>
+        </ion-header-bar>
+        <ion-nav-view></ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="right" is-enabled="settings.side">
+        <ion-header-bar class="another-header"></ion-header-bar>
+        <ion-content class="another-content">
+            <h2 class="title-sidemenu">Tasks</h2>
+            <ul>
+                <li class="li" ng-repeat="todo in todos track by $index">
+                  <hr>
+                  <div class="wrapper">
+                      <h5>
+                          <span class="sidemenu-name"><div class="sidemenu-name-little">Name:</div> {{todo.name}}</span>
+                      </h5>
+                  </div>
+                  <div class="wrapper">
+                      <p class="tasks-sidemenu" ng-click="classChange(todo)">Task:</p>
+                      <div ng-class="{'new':todo.type===1, 'in-progress':todo.type===2, 'done':todo.type===3}" ng-click="classChange(todo)"></div>
+                  </div>
+                </li>
+            </ul>
+        </ion-content>
+    </ion-side-menu>
+
+    <ion-side-menu side="left" is-enabled="!settings.side">
+        <ion-header-bar  class="header"></ion-header-bar>
+        <ion-content class="content">
+            <h2 class="title-sidemenu">Tasks</h2>
+            <ul>
+                <li class="li" ng-repeat="todo in todos track by $index">
+                  <hr>
+                  <div class="wrapper">
+                      <h5>
+                          <span class="sidemenu-name"><div class="sidemenu-name-little">Name:</div> {{todo.name}}</span>
+                      </h5>
+                  </div>
+                  <div class="wrapper">
+                      <p class="tasks-sidemenu" ng-click="classChange(todo)">Task:</p>
+                      <div ng-class="{'new':todo.type===1, 'in-progress':todo.type===2, 'done':todo.type===3}" ng-click="classChange(todo)"></div>
+                  </div>
+                </li>
+            </ul>
+        </ion-content>
+    </ion-side-menu>
+
+</ion-side-menus>

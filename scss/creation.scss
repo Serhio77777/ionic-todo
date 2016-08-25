@@ -1,0 +1,34 @@
+.creation {
+    margin-top: 21px;
+    background-color: $little-light-grey;
+}
+.tasks-creation {
+    padding-top: 10px;
+    color: $dark-blue;
+    font-weight: 700;
+    font-size: 20px;
+}
+.block {
+    display: flex;
+    padding-left: 10px;
+    padding-top: 15px;
+    color: $dark-blue;
+    font-size: 20px;
+    font-weight: 700;
+}
+.name-imput {
+    width: 200px;
+    text-align: left;
+}
+input {
+    margin-bottom: 5px;
+}
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+.image-padding {
+    margin: 10px 5px 20px 5px;
+}
